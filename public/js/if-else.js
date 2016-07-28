@@ -24,18 +24,6 @@ var flipACoin = Math.floor(Math.random()* 2)
 Add an if statement to log a "Buy a car" to the console if the result is 0 and "Buy a house" if the result is 1. 
 Could this program be written using a ternary operator?*/
 
-// var cameronSpent = 180;
-// var ryanSpent = 250;
-// var georgeSpent = 320;
-
-// var discountRyan = (ryanSpent *.35);
-// var discountGeorge = (georgeSpent *.35);
-
-// if (cameronSpent < 200); 
-// {
-// 	console.log("Cameron spent $180. Discount was not applied.")
-// }
-
 var person = "Cameron";
 var salesAmount = 180;
 var discount = 0.35;
@@ -43,10 +31,10 @@ var finalAmount;
 
 if(salesAmount > 200) {
 	finalAmount = salesAmount - (salesAmount * discount);
-	console.log(person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount);
+	console.log(person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount.toFixed(2));
 } else {
 	finalAmount = salesAmount;
-	console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount);
+	console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount.toFixed(2));
 }
 
 person = "Ryan"
@@ -54,10 +42,10 @@ salesAmount = 250
 
 if(salesAmount > 200) {
 	finalAmount = salesAmount - (salesAmount * discount);
-	console.log(person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount);
+	console.log(person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount.toFixed(2));
 } else {
 	finalAmount = salesAmount;
-	console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount);
+	console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount.toFixed(2));
 }
 
 person = "George"
@@ -65,10 +53,10 @@ salesAmount = 320
 
 if(salesAmount > 200) {
 	finalAmount = salesAmount - (salesAmount * discount);
-	console.log(person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount);
+	console.log(person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount.toFixed(2));
 } else {
 	finalAmount = salesAmount;
-	console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount);
+	console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount.toFixed(2));
 }
 /*HEB has an offer for the clients that buy products amounting more than $200. The discount is 35% off the purchase. 
 Write a JS program, using conditionals, that logs to the browser, how much Ryan, Cameron and George need to pay. 
