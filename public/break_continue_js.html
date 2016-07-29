@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Break Continue JS</title>
+</head>
+  <body>
+  <h2>Break Continue Javascript</h2>
+   <p>See console log for output</p>
+   <script>
+   	"use strict";
+
+  var random = Math.floor((Math.random()*50)+1);
+  console.log('Random stopping point is: ' + random);
+
+  for (var i = 1; i < 50; i++) {
+	if (i % 2 === 0) {
+        continue;
+	}
+    if (random === i) {
+    	console.log('We have reached our random number and will skip number: ' + i);    
+    } else {
+    	console.log('Here is an odd number: ' + i);
+    	continue;
+    }
+   	if (i >= 49) {
+    	break;
+    }
+  }
+
+
+   </script>
+  </body>
+</html>
