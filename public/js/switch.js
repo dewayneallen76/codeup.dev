@@ -41,6 +41,7 @@ switch (luckyNumber) {
 // that shows the names of the months in the console.
 
 var monthsOfYear = Math.floor(Math.random()* 6)
+
 switch (monthsOfYear) {
 	case 1:
 	 console.log("January");
