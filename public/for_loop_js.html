@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>For Loop JS</title>
+</head>
+  <body>
+  <h1>For Loop JS</h1>
+   <style>   	
+   	h1 {
+   		text-align: center;
+   		color: red;
+   		}
+   </style>
+
+   <script>
+   	"use strict";
+//count from 10 to 1 
+// for (var i = 10; i > 0; i -= 1) {
+//     console.log(i);
+// }
+////////////////////////////////////////////////////
+// clock from 1:00 to 5:59
+// for (var i = 1; i <= 5; i += 1){
+
+// 	for (var j = 0; j <= 59; j += 1){
+// 		console.log(i + ":" + j);
+// 	}
+// }
+///////////////////////////////////////////////////
+/// 1, 22, 333, 444, etc.////////////
+var number; 
+var repeatedNumber;
+for (var i = 1; i <= 10 ; i++) {
+	number = i.toString(); //var number to string 
+	if (i === 10) {
+		number = "0" // got hung up on this for a little bit, because the code is looking for a string. added "" to make 0 a string 
+	}
+repeatedNumber = number.repeat(i);	// i.repeat(i);
+	console.log(repeatedNumber);
+}
+/// Multiplication Table Random Number ////////////
+var random = Math.floor((Math.random() * 10) +1);
+var answer;
+	for (var i = 1; i <= 10; i++) {
+		answer = random * i;
+		console.log(random + 'x' + i + "=" + answer)
+	}
+//////////////////////////////////////////////////////
+// Using a for loop and the code to generate a random number from the previous lessons, generate 10 random numbers between 20 and 200 and output to the console whether each number is odd or even. 
+
+for (i = 1; i <= 10; i++) {
+	
+	var randomOddEven = Math.floor((Math.random() * 180) + 20);
+
+	switch (randomOddEven % 2) {
+		case 1:
+		  console.log(randomOddEven + " is an odd number");
+		  break;
+		default :
+		  console.log(randomOddEven + " is an even number");
+		  break;
+	}
+}
+
+
+//////////////////////////////////////////////////////	
+// ///Countdown from 100 to 5, subtracting 5 each time/////
+	for (var i = 100; i >= 5; i = i - 5) {
+		console.log(i);
+	}
+   
+   </script>
+  </body>
+</html>
