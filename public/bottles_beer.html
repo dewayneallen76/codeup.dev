@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>99 Bottles of Beer</title>
+</head>
+  <body>
+  <h2>99 Bottles of Beer</h2>
+   <script>
+   	
+   	"use strict";
+
+   	var bottles
+   	var count
+
+    for (count = 99; count >= 1; count = count - 1)  	
+   	{
+   		if (count == 1) {
+   			bottles = 'bottle';	// if statement to change bottles to bottle when 1 is reached 
+   		} else {
+   			bottles = 'bottles';
+   		}
+   		console.log(count + " " + bottles + " of beer on the wall.");
+   		if (count < 99) {
+   		   console.log("");
+   		   console.log(count + " " + bottles + " of beer on the wall.");
+   		} 
+   		console.log(count + " " + bottles + " of beer.");
+   		console.log("Take one down,");
+   		console.log("Pass it around"); 
+   		if (count == 1) {
+   		   console.log("No more bottles of beer on the wall");
+   		}
+   	}
+
+   </script>
+  </body>
+</html>
+<!-- random challenge - do 99 bottles of beer on the wall, when there's 1 bottle of beer, be sure to say "1 bottle of beer" not "1 bottles of beer" -->
