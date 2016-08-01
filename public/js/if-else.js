@@ -1,23 +1,37 @@
 "use strict";
-
+// refactored to use a function 
+var student = 'Kristy'
 var avgGrade = ((70+80+95)/3);
- 
-if (avgGrade >= 80) {
-	console.log("You're awesome.");
-} else {
-	console.log("You need to practice more.");
+console.log(student + " your average grade is: " + avgGrade.toFixed(1));
+
+function grade(avgGrade, student) {
+	if (avgGrade >= 80) {
+	console.log(student + ", You're awesome.");
+	} else {
+	console.log(student + ", You need to practice more.");
+	}
+	return;
 }
+grade(avgGrade, student);
+// takes in three grades, calculates average, checks average vs. passing grade
+
 /*Knowing that a student's grades are 70, 80, 95. Write a JS program, using conditionals 
 that logs to the console "You're awesome" if the average of her grades is greater than 80, 
 otherwise the message should be "You need to practice more". */
+function shouldBuyHouseorCar() {
+	var flipACoin = Math.floor(Math.random()* 2);
 
-var flipACoin = Math.floor(Math.random()* 2)
-
-if (flipACoin == 0) {
+	if (flipACoin == 0) {
 	console.log("Buy a car!");
-} else {
-	console.log("Buy a house");
+	} else {
+	console.log("Buy a house!");
+	}
+	return;
 }
+
+shouldBuyHouseorCar ();
+shouldBuyHouseorCar ();
+shouldBuyHouseorCar ();
 /*Suppose your friend Isaac cannot decide between two options. He doesn't know if he should buy a car or 
 a new house. Help him decide! Write a small JS program. The following line generates either a 0 or a 1 randomly.
 var flipACoin = Math.floor(Math.random()* 2)
@@ -42,21 +56,22 @@ function displaySaleInfo(person, salesAmount, discount) {
 	
     if(salesAmount > 200) {
 		finalAmount = salesAmount - (salesAmount * discount);
-	 	console.log(person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount.toFixed(2));
+	 	return person + " purchased $" + salesAmount + " and a discount was was applied. Final amount is: $" + finalAmount.toFixed(2);
     } else {
 		finalAmount = salesAmount;
-		console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount.toFixed(2));
+		return person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount.toFixed(2);
   	}
-  	return ;
-
 }
 // call the function
-displaySaleInfo(person, salesAmount, discount);
+console.log(displaySaleInfo("Cameron", 180, .35));
+console.log(displaySaleInfo("Ryan", 250, .35));
+console.log(displaySaleInfo("George", 320, .35));
+console.log(displaySaleInfo("Kristy", 300, .35));
 
-person = "Ryan"
-salesAmount = 250
-// call the function for Ryan
-displaySaleInfo(person, salesAmount, discount);
+
+// person = "Ryan"
+// salesAmount = 250
+// // call the function for Ryan
 
 // if(salesAmount > 200) {
 // 	finalAmount = salesAmount - (salesAmount * discount);
@@ -66,10 +81,10 @@ displaySaleInfo(person, salesAmount, discount);
 // 	console.log(person + " purchased $" + salesAmount + " and a discount was not applied. Final amount is: $" + finalAmount.toFixed(2));
 // }
 
-person = "George"
-salesAmount = 320
-// call the function for George 
-displaySaleInfo(person, salesAmount, discount);
+// person = "George"
+// salesAmount = 320
+// // call the function for George 
+// displaySaleInfo(person, salesAmount, discount);
 
 // if(salesAmount > 200) {
 // 	finalAmount = salesAmount - (salesAmount * discount);
