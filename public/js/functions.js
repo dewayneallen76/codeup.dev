@@ -33,3 +33,32 @@ function isOdd(numberToTest) {
 }
 isOdd(random)
 // TODO: Call the function 'isOdd' passing the variable 'random' as a parameter.
+
+// take a string and remove the spaces
+// input --> 'hello there lassen'
+// output --> 'hellotherelassen'
+function stringContains (haystack, needle) {
+  var index = haystack.indexOf(needle);
+  if (index === -1) {
+  	return false;
+  } else {
+  	return true;
+  }
+}
+// take a string as input
+// reuturn true if there is a ' ' in the string, otherwise false
+function hasASpace (stringToCheck) {
+	var stringHasASpace = stringContains(stringToCheck, ' ');
+	return stringHasASpace;
+}
+// takes a needle and a haystack returns true if the needle is in the haystack
+// otherwise false
+function removeSpaces (phrase) {
+  
+  while (hasASpace(phrase)) {
+	  phrase = phrase.replace(' ', '');
+  }
+  return phrase;
+}
+var result = removeSpaces('hello there lassen!');
+console.log(result);
