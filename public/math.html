@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Math JS</title>
+</head>
+  <body>
+   <h1>MATH!!!</h1>
+ 	<h2>vvvvvvvSee consolevvvvvv</h2>
+
+ 	<script>
+ 	"use strict";
+ 	console.log("using inline JS for this one")
+ 	//make a new file called math.html
+ 	//write functions that perform the following actions:
+ 	//sum two numbers
+ 	//subtract one number from another
+ 	//multiply two numbers
+ 	//divide two numbers
+ 	//square a number (without using * operator)
+ 	  //this means use the multiply function you just made
+ 	//sums two squares (without using * or + operators)
+ 	  //this means use multiply () and sum () that you just made
+
+ 	// Add functionality for each function that makes sure the parameters are numbers
+ 	// if one of the parameters is not a number, return "inputs must be numberic"
+
+ 	// Add functionality to divide () to notify if you divide by zero
+
+ 	// write a function called isNumeric(number) that returns a boolean
+ 	
+// sum
+ 	function sum(a,b) {
+ 			return a + b;
+ 		}
+ 	console.log(sum(7, 5));
+ 	console.log(sum(100, 9999));
+ 	console.log(sum(1476, 2345));
+// subtract
+ 	function subtract(a,b) {
+ 		return a - b;
+ 	}
+ 	console.log(subtract(4366, 6));
+ 	console.log(subtract(12345, 6789));
+ 	console.log(subtract(55555555555555, 1233252354345435));
+// mutliply
+ 	function multiply(a,b) {
+ 		return a * b;
+ 	}
+ 	console.log(multiply(4, 3));
+ 	console.log(multiply(5,8));
+ 	console.log(multiply(9, 8));
+// divide
+ 	function divide(a,b) {
+ 		return a / b;
+ 	}
+ 	console.log(divide(4,2));
+ 	console.log(divide(12,3));
+ 	console.log(divide(144,12));
+// square
+	function square(a) {
+		return multiply(a,a);
+	}
+	console.log(square(3));
+// sums two squares
+	function sumOfSquares(a, b) {
+		var  sumOfSquares = sum(square(a), square(b));
+		return sumOfSquares;
+	}
+	console.log(sumOfSquares(4, 3));
+
+
+
+ 	</script>
+  </body>
+</html>
