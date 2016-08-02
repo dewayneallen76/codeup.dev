@@ -27,21 +27,39 @@
  	// Add functionality to divide () to notify if you divide by zero
 
  	// write a function called isNumeric(number) that returns a boolean
- 	
+ 	// function isNumeric(number) {
+ 	// 	if(number = (3)); {
+ 	// 	return true; 
+ 	// 	} else {
+ 	// 	return false; 	
+ 	// 	}
+ 	//  }
+ 	//  console.log(isNumeric, (3));
+
 // sum
  	function sum(a,b) {
+ 		// added functionality to show inputs must be a number
+ 			if(a,b >= 0) {
  			return a + b;
+ 		} else {
+			return "inputs must be a number";
  		}
- 	console.log(sum(7, 5));
+	  }
+ 	console.log(sum(7, "dog"));
  	console.log(sum(100, 9999));
  	console.log(sum(1476, 2345));
 // subtract
+	// added functionality 
  	function subtract(a,b) {
+ 		if(a,b >= 0) {
  		return a - b;
+     } else {
+ 		return "inputs must be a number";
+     }
  	}
- 	console.log(subtract(4366, 6));
+ 	console.log(subtract(4366, "cat"));
  	console.log(subtract(12345, 6789));
- 	console.log(subtract(55555555555555, 1233252354345435));
+ 	console.log(subtract(46, 25));
 // mutliply
  	function multiply(a,b) {
  		return a * b;
@@ -50,10 +68,15 @@
  	console.log(multiply(5,8));
  	console.log(multiply(9, 8));
 // divide
+  // added functionality to give error message if trying to divide by 0
  	function divide(a,b) {
+ 		if(a,b > 0) {
  		return a / b;
+ 		 } else {
+ 		return "you can't use zero";
+ 	 }
  	}
- 	console.log(divide(4,2));
+ 	console.log(divide(4, 0));
  	console.log(divide(12,3));
  	console.log(divide(144,12));
 // square
@@ -61,12 +84,15 @@
 		return multiply(a,a);
 	}
 	console.log(square(3));
+	console.log(square(12));
+	console.log(square(5));
 // sums two squares
 	function sumOfSquares(a, b) {
 		var  sumOfSquares = sum(square(a), square(b));
 		return sumOfSquares;
 	}
 	console.log(sumOfSquares(4, 3));
+	console.log(sumOfSquares(12,12));
 
 
 
