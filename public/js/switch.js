@@ -1,4 +1,5 @@
 "use strict";
+(function () {
 // The following line generates a random number between 0 and 5.
 // var luckyNumber = Math.floor(Math.random()* 6)
 // Now, suppose there's a promotion in Walmart, If your lucky number is 0 you have no discount, 
@@ -69,3 +70,5 @@ switch (monthsOfYear) {
 	 console.log("December");
 	 break;
 }
+
+})();

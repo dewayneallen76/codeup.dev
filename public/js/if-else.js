@@ -1,4 +1,5 @@
 "use strict";
+(function () {
 // refactored to use a function 
 var student = 'Kristy'
 var avgGrade = ((70+80+95)/3);
@@ -100,4 +101,4 @@ We know that Cameron bought $180, Ryan $250 and George $320. Your program will h
 The output of your code should be similar to the following one:
 Luis bought $100.00, no discount was applied. Final payment: $100.00.
 Zach bought $220.00, discount was applied. Final payment: $143.00.*/
-
+})();

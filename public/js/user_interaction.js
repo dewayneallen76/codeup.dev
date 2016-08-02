@@ -1,4 +1,5 @@
 "use strict";
+(function ()) {
 
 console.log("My js file is connected to my HTML")
 
@@ -26,3 +27,4 @@ var response = confirm("Do you like pizza, " + userName + "?");
 	console.log(response);
 // TODO: Ask the user if they like pizza.
 //       Based on their answer show a creative alert message.
+})();

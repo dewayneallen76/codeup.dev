@@ -1,5 +1,5 @@
 "use strict";
-
+(function () {
 console.log("my JS is connected correctly to my HTML")
 
 var myNameIs = 'Dewayne'; // TODO: Fill in your name here.
@@ -62,3 +62,5 @@ function removeSpaces (phrase) {
 }
 var result = removeSpaces('hello there lassen!');
 console.log(result);
+
+})();
