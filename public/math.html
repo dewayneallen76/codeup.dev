@@ -29,7 +29,7 @@
  			 input2 = parseInt(input2);
  			var add = sum(input1, input2);
  			alert("The answer is " + add);
- 			// console.log(add);
+ 			console.log(add);
  		}
  		if(response == 'subtract') {
  			var input1 = prompt("enter first number");
@@ -38,10 +38,28 @@
  			 input2 = parseInt(input2);
  			var sub = subtract(input1, input2);
  			alert("The answer is " + sub);
- 			// console.log(subtract);
- 		} else {
- 			prompt('please enter number');
+ 			console.log(sub);
  		}
+ 		if(response == 'multiply') {
+ 			var input1 = prompt("enter first number");
+ 			 input1 = parseInt(input1);
+ 			var input2 = prompt("enter second number");
+ 			 input2 = parseInt(input2);
+ 			var mult = multiply(input1, input2);
+ 			alert("The answer is " + mult);
+ 			console.log(mult);
+ 		}
+ 		if(response == 'divide') {
+ 			var input1 = prompt("enter first number");
+ 			 input1 = parseInt(input1);
+ 			var input2 = prompt("enter second number");
+ 			 input2 = parseInt(input2);
+ 			var div = divide(input1, input2);
+ 			alert("The answer is " + div);
+ 			console.log(div);
+ 		}
+
+ 	
  	// alert("The answer is " + add);
  	// console.log(add);
 
@@ -97,7 +115,11 @@
  	console.log(subtract(46, 25));
 // mutliply
  	function multiply(a,b) {
+ 		if(a,b >= 0) {
  		return a * b;
+     } else {
+ 		return "inputs must be a number";
+ 	 }
  	}
  	console.log(multiply(4, 3));
  	console.log(multiply(5,8));
