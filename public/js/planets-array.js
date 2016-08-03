@@ -45,7 +45,7 @@
     logPlanets();
 
     console.log('Using splice to add back the planet after "Earth".');
-    var add = planets.splice(planets.indexOf('Earth'), + 1, 'Earth', 'Mars');
+    planets.splice(3, 0, 'Mars');
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
     logPlanets();
 
@@ -58,4 +58,11 @@
     planets.sort();
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
     logPlanets();
+    // BONUS:
+    //write a function that takes an array and returns a random element from that array
+    var myArray = [1,2,3,4];
+    var randomIndex = Math.floor(Math.random() * myArray.length);
+    console.log(myArray[randomIndex]);
+    
+
 })();
