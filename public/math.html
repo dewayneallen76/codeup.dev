@@ -21,47 +21,37 @@
  	// add functionality to allow the user to square a number, or average 3 numbers 
  	// (note that you will not always have just 2 inputs)
  	// var add = sum(input1, input2)
- 	var response = prompt("Would you like to add, subtract, multiply or divide?");
+ 	var response = prompt("Would you like to Add, Subtract, Multiply or Divide?");
+ 	var input1 = prompt("Enter first number");
+ 	var input2 = prompt("Enter second number");
  		if(response == 'add') {
- 			var input1 = prompt("enter first number");
  			 input1 = parseInt(input1);
- 			var input2 = prompt("enter second number");
  			 input2 = parseInt(input2);
  			var add = sum(input1, input2);
  			alert("The answer is " + add);
  			console.log(add);
  		}
  		if(response == 'subtract') {
- 			var input1 = prompt("enter first number");
  			 input1 = parseInt(input1);
- 			var input2 = prompt("enter second number");
  			 input2 = parseInt(input2);
  			var sub = subtract(input1, input2);
  			alert("The answer is " + sub);
  			console.log(sub);
  		}
  		if(response == 'multiply') {
- 			var input1 = prompt("enter first number");
  			 input1 = parseInt(input1);
- 			var input2 = prompt("enter second number");
  			 input2 = parseInt(input2);
  			var mult = multiply(input1, input2);
  			alert("The answer is " + mult);
  			console.log(mult);
  		}
  		if(response == 'divide') {
- 			var input1 = prompt("enter first number");
  			 input1 = parseInt(input1);
- 			var input2 = prompt("enter second number");
  			 input2 = parseInt(input2);
  			var div = divide(input1, input2);
  			alert("The answer is " + div);
  			console.log(div);
  		}
-
- 	
- 	// alert("The answer is " + add);
- 	// console.log(add);
 
  	//make a new file called math.html
  	//write functions that perform the following actions:
