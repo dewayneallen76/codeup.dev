@@ -107,7 +107,7 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">About Me:</h2>
-                    <p class="lead">I love to eat bacon. I will eat bacon on everything. Bacon is good.<br>bacon<br>bacon<br>bacon<br>...BACON!!!</p>
+                    <p class="lead">I am currently attending Codeup in order to find a new career in web development. Originally from Tennessee, I moved to San Antonio in 1995 when I joined the United States Air Force. My Air Force career was as a Telecommunications Maintenance Technician. I used this experience to obtain employment with some of the top companies in telecommunications. For the last ten years I have been employed as General Manager for Cambridge Auto Center, which is owned by my wifes family. I chose Codeup and pursuing a career change in web development because I was ready for a new challenge. 
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/bacon.jpeg" alt="">
@@ -117,10 +117,10 @@
         </div>
         <!-- /.container -->
 
-    </div>
+  <!--   </div> -->
     <!-- /.content-section-a -->
 
-    <div class="content-section-b">
+   <!--  <div class="content-section-b">
 
         <div class="container">
 
@@ -139,14 +139,14 @@
         </div>
         <!-- /.container -->
 
-    </div>
+ <!-- <!--    </div>
     <!-- /.content-section-b -->
 
-    <div class="content-section-a">
+    <!-- <div class="content-section-a"> -->
 
-        <div class="container">
+        <!-- <div class="container"> -->
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
@@ -155,13 +155,13 @@
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/phones.png" alt="">
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> --> 
 
-        </div>
+   <!--      </div> -->
         <!-- /.container -->
 
-    </div>
+  <!--   </div> -->
     <!-- /.content-section-a -->
 
 	<a  name="contact"></a>
@@ -171,13 +171,13 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <h2>Connect to Start Bootstrap:</h2>
+                    <h2>Connect With Me:</h2>
                 </div>
                 <div class="col-lg-6">
                     <ul class="list-inline banner-social-buttons">
-                        <li>
+                        <!-- <li>
                             <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                         </li>
