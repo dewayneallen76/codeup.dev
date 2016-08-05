@@ -7,6 +7,7 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="btn-1">Change Main Header</button>
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -14,7 +15,10 @@
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+<button id="btn-2">Change Item Colors</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="btn-3">Change Sub Header Color</button>
+<button id="btn-4">Change Paragraph Content</button>
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -29,10 +33,17 @@
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
+        // ADDED BUTTON AND EVENT LISTENER TO CHANGE HELLO JAVASCRIPT BACK TO ORIGINAL HELLO WORLD
+        var btn1 = document.getElementById('btn-1');
+        btn1.addEventListener('click', function(){
+            mainHeader.innerHTML = "Hello World";
+        });
+
         var mainHeader = document.getElementById('main-header');
         console.log(mainHeader.innerHTML);
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        
         mainHeader.innerHTML = "JavaScript is Cool";
         console.log(mainHeader.innerHTML);
 
@@ -41,16 +52,34 @@
         console.log(subHeader.innerHTML);
 
         // TODO: Set the text color of subHeader to blue
+        // ADDED BUTTON AND EVENT LISTENER TO CHANGE SUBHEADER COLOR BACK TO ORIGINAL COLOR OF BLACK
+        var btn3 = document.getElementById('btn-3');
+        btn3.addEventListener('click', function(){
+            subHeader.style.color = 'black';
+        });
+
         var bodyElement = document.getElementsByTagName('sub-header');
         subHeader.style.color = '#00f';
 
         // TODO: Uncomment the next line and get all list items
-
         var listItems = document.getElementsByTagName('li');
+        console.log(listItems);
+        // ADDED BUTTON TO CHANGE ALL LIST ITEMS BACK TO BLACK
+        var btn2 = document.getElementById('btn-2');
+        btn2.addEventListener('click', function(){
+            // console.log(listItems);
+            changeColor(listItems, 'black');
+        });
+        function changeColor (element, color){
+            for (i = 0; i < element.length; i++) {
+                element[i].style.color = color;
+            }
+        };
+        // var listItems = document.getElementsByTagName('li');
         for (var i = 0; i < listItems.length; i++) {
             var dbId = listItems[i].getAttribute("data-dbid");
-            console.log(listItems);
-            console.log(dbId);
+            // console.log(listItems);
+            // console.log(dbId);
         
         // TODO: Set text color of li with dbid = 1 to blue
             if (i == 0) {
@@ -58,16 +87,21 @@
         
         // TODO: Set text color on every other list item to grey
             } else if (i % 2 == 0) {
-            listItems[i].style.color = 'gray';
+                listItems[i].style.color = 'gray';
             }
         }
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        // ADD BUTTON TO CHANGE PARAGRAPH CONTENT
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
         console.log(subParagraphs[0]);
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = "Mission Accomplished!";
+        var btn4 = document.getElementById('btn-4');
+        btn4.addEventListener('click', function(){
+            subParagraphs[0].innerText = "Mission Accomplished!";
+        });
+        // subParagraphs[0].innerText = "Mission Accomplished!";
 
     })();
 </script>
