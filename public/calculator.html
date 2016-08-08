@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+</head>
+  <body>
+  <span class="title">Calculator Project</span>
+  <link rel="stylesheet" href="css/calculator.css">
+   <div id ="calculator">
+   <!-- First three lines for inputting operators an operand -->
+   <!-- Needs to have three rows for text input -->
+   	<section class = "display">
+   		<input id = "leftInput" type="text" readonly>
+   		<input id = "operator" type="text" readonly>
+   		<input id = "rightInput" type="text" readonly>
+   	</section>
+   	   <!-- BELOW ARE THE BUTTON KEYS-->
+   		<div>
+   		 <span>
+   			<button class="buttons keys" id="btn7">7</button>
+   			<button class="buttons keys" id="btn8">8</button>
+   			<button class="buttons keys" id="btn9">9</button>
+   			<button class="operators keys" id="btnMultiply">*</button>
+   		 </span>
+   		</div>
+   		<div>
+   		 <span>
+   			<button class="buttons keys" id="btn4">4</button>
+   			<button class="buttons keys" id="btn5">5</button>
+   			<button class="buttons keys" id="btn6">6</button>
+   			<button class="operators keys" id="btnSubtract">-</button>
+   		 </span>
+   		</div>
+   		<div>
+   		 <span>
+   			<button class="buttons keys" id="btn1">1</button>
+   			<button class="buttons keys" id="btn2">2</button>
+   			<button class="buttons keys" id="btn3">3</button>
+   			<button class="operators keys" id="btnAdd">+</button>
+   		 </span>
+   		</div>
+   		<div>
+   		 <span>
+   			<button class="operators bottomkeys" id="btnClear">C</button>
+   			<button class="buttons bottomkeys" id="btn0">0</button>
+   			<button class="buttons bottomkeys" id="btnDecimal">.</button>	
+   			<button class="operators bottomkeys" id="btnEquals">=</button>
+   			<button class="operators bottomkeys" id="btnDivide">/</button>
+   		 </span>
+   		</div>
+   	   </div>
+   	<script src="js/calculator.js"></script>   
+  </body>
+</html>
+
