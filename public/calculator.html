@@ -5,14 +5,15 @@
 </head>
   <body>
   <span class="title">Calculator Project</span>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron:400,900' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/calculator.css">
    <div id ="calculator">
    <!-- First three lines for inputting operators an operand -->
    <!-- Needs to have three rows for text input -->
    	<section class = "display">
-   		<input id = "leftInput" type="text" readonly>
-   		<input id = "operatorInput" type="text" readonly>
-   		<input id = "rightInput" type="text" readonly>
+   		<input id = "leftInput" type="text" value="" readonly>
+   		<input id = "operatorInput" type="text" value="" readonly>
+   		<input id = "rightInput" type="text" value="" readonly>
    	</section>
    	   <!-- BELOW ARE THE BUTTON KEYS-->
    		<div>
@@ -21,6 +22,7 @@
    			<button class="numbers keys" id="btn8">8</button>
    			<button class="numbers keys" id="btn9">9</button>
    			<button class="operators keys" id="btnMultiply">*</button>
+   			<button class="clear keys"  id="btnClear">C</button>
    		 </span>
    		</div>
    		<div>
@@ -29,6 +31,7 @@
    			<button class="numbers keys" id="btn5">5</button>
    			<button class="numbers keys" id="btn6">6</button>
    			<button class="operators keys" id="btnSubtract">-</button>
+   			<button class="keys" id="blank">.</button>
    		 </span>
    		</div>
    		<div>
@@ -37,11 +40,12 @@
    			<button class="numbers keys" id="btn2">2</button>
    			<button class="numbers keys" id="btn3">3</button>
    			<button class="operators keys" id="btnAdd">+</button>
+   			<button class="keys" id="blank">.</button>
    		 </span>
    		</div>
    		<div>
    		 <span>
-   			<button class="clear keys"  id="btnClear">C</button>
+   		 	<button class="keys" id="blank">.</button>
    			<button class="numbers keys" id="btn0">0</button>
    			<button class="numbers keys" id="btnDecimal">.</button>	
    			<button class="equals keys" id="btnEquals">=</button>

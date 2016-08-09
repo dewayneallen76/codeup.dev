@@ -1,8 +1,30 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+body {
+	align-content: center;
+	background-color: silver;
+}
+
 /*Title*/
 .title {
+	padding-right: 10px;
 	text-align: center;
-	font-size: 40px;
-	font-family: cursive;
+	font-size: 39px;
+	font-family: 'Orbitron', sans-serif;
+	padding-bottom: 10px;
+	text-decoration-color: white;
 }
 /*Keyboard buttons*/
 .keys {
@@ -16,29 +38,45 @@
 	padding-right: 5px;
 	padding-bottom: 5px;
 	margin-top: 5px;
+	font-family: 'Orbitron', sans-serif;
  	}
 /*Screens*/
-.screens {
+#leftInput {
 	height: 75px;
-	width: 100px;
-	font-size: 25px;
-	text-align: center;
-	margin-bottom: 10px;
-	}
-#leftinput {
-	
-}
-/*Bottom keys*/
-/*.bottomkeys {
-	background-color: orange;
-	height: 75px;
-	width: 59px;
-	font-size: 25px;
-	text-align: center;
-	padding-left: 5px;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-bottom: 5px;
+	width: 152px;
+	background-color: gray;
+	font-size: 40px;
+	font-family: 'Orbitron', sans-serif;
+	border-radius: 20px;
 	margin-top: 5px;
-}*/
+}
+
+#operatorInput {
+	height: 75px;
+	width: 60px;
+	background-color: gray;
+	font-size: 40px;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;
+	border-radius: 20px;
+	margin-top: 5px;
+}
+
+#rightInput {
+	height: 75px;
+	width: 155px;
+	background-color: gray;
+	font-size: 40px;
+	font-family: 'Orbitron', sans-serif;
+	border-radius: 20px;
+	margin-top: 5px;
+}
+/*blank buttons*/
+#blank {
+	background-image: url(/img/spacecat.png);
+	background-color: black;
+	text-align: left;
+	text-decoration-color: silver;
+}
+
 
