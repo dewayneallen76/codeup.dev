@@ -14,7 +14,8 @@ body {
 
 body {
 	align-content: center;
-	background-color: silver;
+	background-image: url(/img/lasercat.gif);
+	background-size: 100%;
 }
 
 /*Title*/
