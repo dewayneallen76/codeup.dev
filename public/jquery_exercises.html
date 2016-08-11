@@ -11,22 +11,30 @@
 
  $(document).ready(function () {
     
-    $('.codeup').css('border-style', 'solid');
- 	$('.codeup').css('border-color', 'red');
- 	$('.codeup').css('border-width', '1px');
+   	$('li').css('font-size', '20px');
+   	$('li, p, h1').css('background-color','yellow');
+   	var contents = $('h1').html();
+   	alert(contents);
 
 });
 
 </script>
-    <h1>Example Page</h1>
-    <div class="codeup">
-        <h3>NOTICE</h3>
-        <p>This is an important message!</p>
-    </div>
-    <div class="not-important">
-        <h2>Lorem Ipsum</h2>
-        <p>Lorem ipsum dolor sit amet, incididunt ut <span class="important">labore et dolore magna aliqua.</span>, quis ut aliquip ex ea commodo.</p>
-    </div>
-    <p id="codeup">This is also very important.</p>
+<h1 id="exercise">jQuery Exercises</h1>
+	<div class ="container" id="paragraph"></div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	<ul>
+		<li class="list" id="item1">Hamburger</li>
+		<li class="list" id="item2">Hotdog</li>
+		<li class="list" id="item3">Sandwich</li>
+		<li class="list" id="item4">Pizza</li>
+		<li class="list" id="item5">Hot Wings</li>
+	</ul>
+
 
 </body>
