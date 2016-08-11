@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <title>JQuery Exercises</title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+"use strict";
+
+ $(document).ready(function () {
+    alert('The DOM has finished loading');
+
+    var contents = $('#item1').html();
+    alert(contents);
+
+    var contents = $('#item2').html();
+    alert(contents);
+
+});
+
+</script>
+<h1 id="exercise">jQuery Exercises</h1>
+	<div class ="container" id="paragraph"></div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	<ul>
+		<li class="list" id="item1">Hamburger</li>
+		<li class="list" id="item2">Hotdog</li>
+		<li class="list" id="item3">Sandwich</li>
+		<li class="list" id="item4">Pizza</li>
+		<li class="list" id="item5">Hot Wings</li>
+	</ul>
+
+</body>
