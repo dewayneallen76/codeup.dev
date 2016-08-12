@@ -1,23 +1,26 @@
 (function(){
 
 "use strict";
-
 console.log('js linked');
+// TOGGLES INFORMATION IN DETAILED LIST
 $(document).ready(function() {
-    $('#show-information').click(function(event) {
+    $('dt').click(function(event) {
         event.preventDefault();
-        $('dd').toggleClass('invisible');
+        $(this).next().fadeToggle();
     });
-
-$('ul').each(function(element, index) {
+// CHANGES THE FONT WEIGHT ON THE FIRST ITEM IN EACH LIST
+$('ul').each(function() {
 	$(this).children('li').first().css('font-weight', 'bold');
 	});
-
-$('li').click(function(event) {
-        event.preventDefault();
-        $(this).parent().toggleClass('invisible');
+// HIDES THE LIST ITEMS WHEN THE LIST ITEMS ARE CLICKED 
+$('h3').click(function(event) {
+        $(this).next().children('li').slideToggle();
     });
- 
+
+// $('dt').click(function() {
+//     $(this).toggle();
+//     });
+
 });
 
 })(); 
