@@ -1,0 +1,75 @@
+[
+    {
+        "title": "Hammer",
+        "quantity": 25,
+        "categories": [
+            "Tool"
+        ],
+        "price": 20
+    }, {
+        "title": "Drill",
+        "quantity": 5,
+        "categories": [
+            "Tool",
+            "Powered"
+        ],
+        "price": 100
+    }, {
+        "title": "Mower",
+        "quantity": 5,
+        "categories": [
+            "Tool",
+            "Gas",
+            "Outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Screwdrivers",
+        "quantity": 25,
+        "categories": [
+            "Tool"
+        ],
+        "price": 10
+    }, {
+        "title": "Handsaw",
+        "quantity": 8,
+        "categories": [
+            "Tool",
+            "Manual"
+        ],
+        "price": 15
+    }, {
+        "title": "Chainsaw",
+        "quantity": 5,
+        "categories": [
+            "Tool",
+            "Gas",
+            "Outdoor"
+        ],
+        "price": 250
+    }, {
+        "title": "Wrenches",
+        "quantity": 4,
+        "categories": [
+            "Tool",
+            "Set of 4",
+            "Manual"
+        ],
+        "price": 20
+    }, {
+        "title": "Leaf Blower",
+        "quantity": 3,
+        "categories": [
+            "Outdoor",
+            "Electric"
+        ],
+        "price": 85
+    }, {
+        "title": "Rake",
+        "quantity": 10,
+        "categories": [
+            "Outdoor"
+        ],
+        "price": 12
+    }
+]
