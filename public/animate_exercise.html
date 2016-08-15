@@ -28,6 +28,7 @@
         <button id="btn-hide">Hide It</button>
         <button id="btn-show">Show It</button>
         <button id="btn-all">Animate All</button>
+        <button id="btn-left">Move to the Right</button>
     </p>
 
     <div id="animate-box"></div>
@@ -38,7 +39,7 @@
         "use strict";
         // TODO: "Move It" should move the box 100 pixels to the left
         var $box = $("#animate-box");
-
+        
         $("#btn-move").click(function() {
             $box.animate({
                 right: "100px"
@@ -60,7 +61,7 @@
         // TODO: "Show It" should make the box appear
         $("#btn-show").click(function() {
             $box.animate({
-                opacity: "100"
+                opacity: "1"
             }, 1000);
         });
         // TODO: "Animate All" should use an animation stack to:
@@ -74,11 +75,23 @@
             }, 500).animate({
                 opacity: "0",
             }, 500).animate({
-                opacity: "100",
+                opacity: "1",
                 width: "250px",
-                left: "0px"
+                right: "0px"
             }, 500);
         });
+        // Added button to change size, moves to the left on each button click
+        $("#btn-left").click(function() {
+            $box.animate({
+                height: "50px",
+                width: "200px",
+                left: "+=100px",
+            }, 500).animate({
+                height: "250px",
+                width: "250px",
+                left: "+=100px"
+            });
+        })
 
     });
     </script>
