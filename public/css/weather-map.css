@@ -1,9 +1,24 @@
-#container {
+
+
+#todayWeather {
+	border: solid;
+	background-color: silver;
+}
+
+#tomorrowWeather {
+	border: solid;
+	background-color: silver;
+}
+
+#thirdDayWeather {
+	border: solid;
+	background-color: silver;
+}
+
+#googleMap {
+	height: 500px;
 	width: 1000px;
-    height: 300px;
-    padding: 10px;
-    border: 1px solid black;
-    margin-top: 5px;
-    margin-left: 50px;
-    background-color: silver;
+	border: solid;
+	margin-left: 100px;
+	align-content: center;
 }
