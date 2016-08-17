@@ -72,7 +72,8 @@ var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 // creating draggable marker for map 
 var marker = new google.maps.Marker({
     position: myLatlng,
-    draggable: true
+    draggable: true,
+    title: "Move Me!"
 });
 marker.setMap(map);
 
@@ -90,8 +91,7 @@ var inputLongitude = $('#inputLongitude').val();
 	weatherOptions.lon = inputLongitude;
 	weatherOptions.q = '';
 	getWeatherData();
-
-alert('Get Weather?'); //alert to verify that the button is working 
+	
 console.log(inputLongitude); //logging inputted longitude
 console.log(inputLatitude); //logging inputted latitude
 });
