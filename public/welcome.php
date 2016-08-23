@@ -110,7 +110,7 @@
                     <p class="lead">I am currently attending Codeup in order to find a new career in web development. Originally from Tennessee, I moved to San Antonio in 1995 when I joined the United States Air Force. My Air Force career was as a Telecommunications Maintenance Technician. I used this experience to obtain employment with some of the top companies in telecommunications. For the last ten years I have been employed as General Manager for Cambridge Auto Center, which is owned by my wifes family. I chose Codeup and pursuing a career change in web development because I was ready for a new challenge. 
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/bacon.jpeg" alt="">
+                    <img class="img-responsive" src="img/DewayneAllen2.jpg" alt="">
                 </div>
             </div>
 
