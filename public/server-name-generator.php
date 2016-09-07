@@ -17,11 +17,12 @@ return $array[$random];
 	<title>Server Name Generator</title>
 </head>
 <style>
+	body {
+		background-color: silver;
+	}
 	h1 {
 		text-align: center;
-		background-color: silver;
-		color: green;
-		font-family: "Lucida Console", Monaco, monospace;
+		font-size: 100px;
 	}
 </style>
 <body>
