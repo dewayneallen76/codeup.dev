@@ -27,7 +27,7 @@ return $array[$random];
 </style>
 <body>
 	<h1>Server Name:</h1>
-	<h1><?php echo randomServerName($adjective) . " " . randomServerName($noun); ?></h1>
+	<h1><?= randomServerName($adjective) . " " . randomServerName($noun); ?></h1>
 </body>
 </html>
 
