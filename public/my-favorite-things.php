@@ -12,13 +12,13 @@ $favoriteThings = ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
 </head>
 <style>
 	h1, th {
+		color: red;
 		text-align: center;
-		color: green;
 		font-family: "Lucida Console", Monaco, monospace;
 	}
-	th: nth-child(even) {
-		background-color: gray;
-	}
+	tr:nth-child(even) {
+		background-color: blue;
+	}		
 </style>
 <body>
 	<table style = "width:100%">
