@@ -20,9 +20,9 @@ $favoriteThings = ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
 <body>
 	<table style = "width:100%">
 	<h1>My Favorite Things</h1>
-    <?php foreach ($favoriteThings as $things) { ?>
+    <?php foreach ($favoriteThings as $things) : ?>
         <th><?php echo $things; ?></th>
-    <?php } ?>
+    <?php endforeach; ?>
     </table>
 </body>
 </html>
