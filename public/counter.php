@@ -1,6 +1,13 @@
 <?php 
-	
-	$count = (isset($_GET['count'])) ? $_GET['count'] : 0;
+
+function pageController () {
+	$count = [];
+	$count['count'] = (isset($_GET['count'])) ? $_GET['count'] : 0;
+
+	return $count;
+}
+
+extract(pageController());
 
 ?>
 
