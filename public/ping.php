@@ -18,10 +18,10 @@ extract(pageController());
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
     	<h1>PING</h1>
     	<h1>Counter: <?= $count; ?></h1>
-    	<a class="btn btn-default" href="/pong.php?count=<?= $count +1;?>&hit" role="button">HIT</a>
-    	<a class="btn btn-default" href="/pong.php?miss" role="button">MISS</a>
+    	<a class="btn btn-primary btn-lg" href="/pong.php?count=<?= $count +1;?>&hit" role="button">HIT</a>
+    	<a class="btn btn-primary btn-lg" href="/ping.php?miss" role="button">MISS</a>
     </div>
 </body>  
