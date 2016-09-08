@@ -6,9 +6,7 @@
 	$favoriteThings['things']= ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
 	return $favoriteThings;
 	}
-	
-	$favoriteThings = pageController();
-	extract($favoriteThings);
+	extract(pageController());
 
 ?>
 
