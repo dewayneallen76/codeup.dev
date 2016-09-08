@@ -1,9 +1,16 @@
 <?php 
+// refactored using pageController 
+	function pageController() 
+	{
+	$favoriteThings = [];
+	$favoriteThings['things']= ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
+	return $favoriteThings;
+	}
+	
+	$favoriteThings = pageController();
+	extract($favoriteThings);
 
-$favoriteThings = ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
-
-
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -23,9 +30,9 @@ $favoriteThings = ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
 <body>
 	<table style = "width:100%">
 	<h1>My Favorite Things</h1>
-    <?php foreach ($favoriteThings as $things) : ?>
+    <?php foreach ($things as $thing) : ?>
       <tr>
-        <th><?php echo $things; ?></th>
+        <th><?php echo $thing; ?></th>
     	<?php endforeach; ?>
       </tr>
     </table>
