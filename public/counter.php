@@ -1,13 +1,8 @@
 <?php 
-function pageController() 
-{
-	$count = 0;
+	
+	$count = (isset($_GET['count'])) ? $_GET['count'] : 0;
 
-
-}
-
-
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +13,8 @@ function pageController()
 </head>
 <body>
     <div class="container">
-    	<h1>Counter: 0</h1>
-    	<a class="btn btn-default" href="codeup.dev/counter.php" role="button">Up</a>
-    	<a class="btn btn-default" href="codeup.dev/counter.php" role="button">Down</a>
+    	<h1>Counter: <?= $count; ?></h1>
+    	<a class="btn btn-default" href="/counter.php?count=<?= $count +1;?>" role="button">Up +</a>
+    	<a class="btn btn-default" href="/counter.php?count=<?= $count -1;?>" role="button">Down -</a>
     </div>
 </body>    
