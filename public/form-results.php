@@ -9,9 +9,9 @@ $number = isset($_POST['number']) ? $_POST['number'] : '';
 </head>
 <body>
     <h2>Name</h2>
-    <p><?php echo $name; ?></p>
+    <p><?php echo htmlspecialchars(strip_tags($name)); ?></p>
     <h2>Number</h2>
-    <p><?php echo $number; ?></p>
+    <p><?php echo htmlspecialchars(strip_tags($number)); ?></p>
     <a href="form-example.php">Back</a>
 </body>
 </html>
