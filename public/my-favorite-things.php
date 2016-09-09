@@ -2,9 +2,9 @@
 // refactored using pageController 
 	function pageController() 
 	{
-	$favoriteThings = [];
-	$favoriteThings['things']= ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
-	return $favoriteThings;
+		$favoriteThings = [];
+		$favoriteThings['things']= ['God', 'Guns', 'Family', 'Murica', 'Apple Pie'];
+		return $favoriteThings;
 	}
 	extract(pageController());
 
