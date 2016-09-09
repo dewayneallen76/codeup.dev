@@ -32,8 +32,8 @@ if(!empty($_POST) || !empty($_GET)) {
         		<label>Password:</label>
         		<input type="password" class="form-group" name="password" placeholder="Enter your password"><br>
         	</div>
-        	<input class="btn btn-default btn-primary" type="submit">
-        	<h4><?= $message;?></h4>
+        		<input class="btn btn-default btn-primary" type="submit">
+        <h4><?= $message;?></h4>
     	</form>
     </div>
 </body>
