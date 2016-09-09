@@ -1,18 +1,18 @@
 <?php
 function pageController()
 {
-$message = "";
-$username = (isset($_POST['username'])) ? $_POST['username'] : '';
-$password = (isset($_POST['password'])) ? $_POST['password'] : '';
+	$message = "";
+	$username = (isset($_POST['username'])) ? $_POST['username'] : '';
+	$password = (isset($_POST['password'])) ? $_POST['password'] : '';
 
-if(!empty($_POST)) {
-	if($username == 'guest' && $password == 'password') {
-		header("Location: /authorized.php");
-		die;
-	} else {
-		$message = "Login Failed. Try Again";
+	if(!empty($_POST)) {
+		if($username == 'guest' && $password == 'password') {
+			header("Location: /authorized.php");
+			die;
+		} else {
+			$message = "Login Failed. Try Again";
+		}
 	}
-}
 	return [
 		'username' => $username,
 		'password' => $password,
