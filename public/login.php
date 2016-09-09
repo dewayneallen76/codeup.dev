@@ -1,13 +1,21 @@
 <?php
+session_start();
 function pageController()
 {
 	$message = "";
 	$username = (isset($_POST['username'])) ? $_POST['username'] : '';
 	$password = (isset($_POST['password'])) ? $_POST['password'] : '';
 
+	if(!empty($_SESSION)) {
+		if($_SESSION['logged in user'] == 'guest') {
+			header("Location: /authorized.php");
+		}
+	} 
+
 	if(!empty($_POST)) {
 		if($username == 'guest' && $password == 'password') {
 			header("Location: /authorized.php");
+			$_SESSION['logged in user'] = $username;
 			die;
 		} else {
 			$message = "Login Failed. Try Again";
