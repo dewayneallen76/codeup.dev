@@ -1,3 +1,14 @@
+<?php 
+session_start();
+// added conditional if session user is not logged in to redirect to the login page 
+if($_SESSION['logged in user'] != 'guest') {
+	header("Location: /login.php");
+	die;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +18,9 @@
 </head>
 <body>
 	<div class="container text-center">
-		<h1>AUTHORIZED</h1>
+		<h1>AUTHORIZED USER: <?= $_SESSION['logged in user']; ?></h1>
+		<br>
+		<a class="btn btn-default" href="/logout.php" role="button">Logout</a>
 	</div>
 </body>
 </html>
