@@ -17,17 +17,21 @@ if(!empty($_POST) || !empty($_GET)) {
 <html>
 <head>
     <title>login</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css">
 </head>
 <body>
 	<div class ="container">
-		<h1>LOGIN:</h1>
+		<h1>Login:</h1>
     	<form method="POST">
-        	<label>Username:</label>
-        	<input type="text" name="username"><br>
-        	<label>Password:</label>
-        	<input type="password" name="password"><br>
-        	<input type="submit">
+        	<div class="form-group">
+        		<label>Username:</label>
+        		<input type="text" class="form-group" name="username" placeholder="Enter your username"><br>
+        	</div>
+        	<div class="form-group">
+        		<label>Password:</label>
+        		<input type="password" class="form-group" name="password" placeholder="Enter your password"><br>
+        	</div>
+        	<input class="btn btn-default btn-primary" type="submit">
     	</form>
     </div>
 </body>
