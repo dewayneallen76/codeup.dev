@@ -1,4 +1,5 @@
 <?php 
+session_start();
 function clearSession()
 {
     // clear $_SESSION array
@@ -12,8 +13,10 @@ function clearSession()
 
     // start a new session - session_destroy() ended our previous session so
     // if we want to store any new data in $_SESSION we must start a new one
+
+    session_start();
 }    
-session_start();
+
 
 clearSession();
 
