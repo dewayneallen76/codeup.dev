@@ -9,6 +9,7 @@ function pageController()
 	if(!empty($_SESSION)) {
 		if($_SESSION['logged in user'] == 'guest') {
 			header("Location: /authorized.php");
+			die;
 		}
 	} 
 
