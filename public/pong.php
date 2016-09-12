@@ -1,8 +1,8 @@
 <?php 
-
+include 'functions.php';
 function pageController () {
 	$count = [];
-	$count['count'] = (isset($_GET['count'])) ? $_GET['count'] : 0;
+	$count['count'] = inputHas('count') ? inputGet('count') : 0;
 
 	return $count;
 }

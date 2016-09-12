@@ -1,11 +1,12 @@
 <?php
 session_start();
+include_once 'functions.php';
 function pageController()
 {
 	// variables for message, username, and password
 	$message = "";
-	$username = (isset($_POST['username'])) ? $_POST['username'] : '';
-	$password = (isset($_POST['password'])) ? $_POST['password'] : '';
+	$username = inputHas('username') ? escape(inputGet('username')) : '';
+	$password = inputHas('password') ? escape(inputGet('password')) : '';
 
 	// check both the username and password, if match direct to authorized page, if not show error message
 	if(!empty($_POST)) {
