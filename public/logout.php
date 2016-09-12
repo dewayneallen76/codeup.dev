@@ -20,7 +20,7 @@ function clearSession()
 
 clearSession();
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
