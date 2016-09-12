@@ -2,17 +2,18 @@
 session_start();
 function pageController()
 {
+	// variables for message, username, and password
 	$message = "";
 	$username = (isset($_POST['username'])) ? $_POST['username'] : '';
 	$password = (isset($_POST['password'])) ? $_POST['password'] : '';
-
+	// check if the user is logged in and forward them to the authorized page
 	if(!empty($_SESSION)) {
 		if($_SESSION['logged in user'] == 'guest') {
 			header("Location: /authorized.php");
 			die;
 		}
 	} 
-
+	// check both the username and password, if match direct to authorized page, if not show error message
 	if(!empty($_POST)) {
 		if($username == 'guest' && $password == 'password') {
 			header("Location: /authorized.php");
