@@ -1,8 +1,8 @@
 <?php 
-require 'functions.php';
+require_once '/vagrant/sites/codeup.dev/input.php';
 function pageController () {
 	$count = [];
-	$count['count'] = inputHas('count') ? inputGet('count') : 0;
+	$count['count'] = Input::has('count') ? Input::get('count') : 0;
 
 	return $count;
 }
