@@ -15,7 +15,7 @@ class Auth
 				$newFile->filename = "log-" . date('Y-m-d') . '.log';
 				$newFile->info("User {$username} successfully logged in with {$password}");
 				die;
-			} else {
+			} else if {
 				$newFile = new Log();
 				$newFile->filename = "log-" . date('Y-m-d') . '.log';
 				$message = "Login Failed. Try Again";
