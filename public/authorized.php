@@ -1,12 +1,10 @@
 <?php 
 session_start();
-// added conditional if session user is not logged in to redirect to the login page 
-if($_SESSION['logged in user'] != 'guest') {
-	header("Location: /login.php");
-	die;
-}
+require_once '/vagrant/sites/codeup.dev/auth.php';
+require_once '/vagrant/sites/codeup.dev/input.php';
+require_once '/vagrant/sites/codeup.dev/log.php';
 
-
+Auth::check();
 ?>
 
 <!DOCTYPE html>

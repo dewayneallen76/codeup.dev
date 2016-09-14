@@ -1,36 +1,22 @@
 <?php
 session_start();
-include_once 'functions.php';
+require_once '/vagrant/sites/codeup.dev/auth.php';
+require_once '/vagrant/sites/codeup.dev/input.php';
+require_once '/vagrant/sites/codeup.dev/log.php';
 function pageController()
 {
 	// variables for message, username, and password
-	$message = "";
-	$username = inputHas('username') ? escape(inputGet('username')) : '';
-	$password = inputHas('password') ? escape(inputGet('password')) : '';
+	$log = [];
+	$log['name'] = Input::has('username') ? Input::get('username') : "";
+	$log['password'] = Input::has('password') ? Input::get('password') : "";
 
-	// check both the username and password, if match direct to authorized page, if not show error message
-	if(!empty($_POST)) {
-		if($username == 'guest' && $password == 'password') {
-			$_SESSION['logged in user'] = $username;
-		} else {
-			$message = "Login Failed. Try Again";
-		}
-	}
-	// if $_SESSION is still logged in user keep on the authorized page. 
-	if(!empty($_SESSION)) {
-		if($_SESSION['logged in user'] == 'guest') {
-			header("Location: /authorized.php");
-			die;
-		}
-	} 
-
-	return [
-		'username' => $username,
-		'password' => $password,
-		'message'  => $message
-	];
+	return $log ;
 }
 extract(pageController());
+
+Auth::attempt($name, $password);
+Auth::user();
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +38,7 @@ extract(pageController());
         		<input type="password" class="form-group" name="password" placeholder="Enter your password"><br>
         	</div>
         		<input class="btn btn-default btn-primary" type="submit">
-        <h4><?= $message;?></h4>
+        <h4><?php $message; ?></h4>
     	</form>
     </div>
 </body>
