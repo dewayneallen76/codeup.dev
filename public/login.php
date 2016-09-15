@@ -7,16 +7,21 @@ function pageController()
 {
 	// variables for message, username, and password
 	$log = [];
-	$log['name'] = Input::has('username') ? Input::get('username') : "";
-	$log['password'] = Input::has('password') ? Input::get('password') : "";
-	$message = '';
+	$log['name'] = Input::get('username');
+	$log['password'] = Input::get('password');
+	$log['message'] = '';
 
+	if(!empty($log['name']) || !empty($log['password'])) {
+		Auth::attempt($log['name'],$log['password']);
+		if ($log['name'] != 'guest' || $log['password'] != Auth::$password) {
+			$log['message'] = 'Login failed.';
+		}
+	}
+	
+	Auth::user();
 	return $log ;
 }
 extract(pageController());
-
-Auth::attempt($name, $password);
-Auth::user();
 
 ?>
 
@@ -39,7 +44,7 @@ Auth::user();
         		<input type="password" class="form-group" name="password" placeholder="Enter your password"><br>
         	</div>
         		<input class="btn btn-default btn-primary" type="submit">
-        <h4><?php $message; ?></h4>
+        <h4><?= $message; ?></h4>
     	</form>
     </div>
 </body>
