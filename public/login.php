@@ -9,7 +9,7 @@ function pageController()
 	$log = [];
 	$log['name'] = Input::get('username');
 	$log['password'] = Input::get('password');
-	$log['message'] = '';
+	$log['message'] = 'Please log in';
 
 	if(!empty($log['name']) || !empty($log['password'])) {
 		Auth::attempt($log['name'],$log['password']);
