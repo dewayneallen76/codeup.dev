@@ -5,6 +5,7 @@ require_once '/vagrant/sites/codeup.dev/input.php';
 require_once '/vagrant/sites/codeup.dev/log.php';
 
 Auth::check();
+Auth::user();
 ?>
 
 <!DOCTYPE html>
