@@ -9,6 +9,7 @@ function pageController()
 	$log = [];
 	$log['name'] = Input::has('username') ? Input::get('username') : "";
 	$log['password'] = Input::has('password') ? Input::get('password') : "";
+	$message = '';
 
 	return $log ;
 }

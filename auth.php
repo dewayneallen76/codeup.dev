@@ -15,7 +15,7 @@ class Auth
 				$newFile->filename = "log-" . date('Y-m-d') . '.log';
 				$newFile->info("User {$username} successfully logged in with {$password}");
 				die;
-			} else if {
+			} else {
 				$newFile = new Log();
 				$newFile->filename = "log-" . date('Y-m-d') . '.log';
 				$message = "Login Failed. Try Again";
@@ -24,7 +24,7 @@ class Auth
 
 	public static function check() 
 	{
-		if(!empty($_SESSION)) {
+		// if(!empty($_SESSION)) {
 			if($_SESSION['logged in user'] != 'guest') {
 				header("Location: /login.php");
 				return true;
@@ -32,7 +32,7 @@ class Auth
 			}else {
 				return false; 
 			}
-		}		
+		// }		
 	}
 
 	public static function user() 
