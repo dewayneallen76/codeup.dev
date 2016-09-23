@@ -18,11 +18,6 @@ function getLocation($dbc){
 }
 $parks = getParks($dbc);
 
-// foreach($parks as $park){
-// 	echo $park['name']. " --- ".$park['location']. " --- ".$park['date_established']. " --- ".$park['area_in_acres'];
-// 	echo "<br>";
-// }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,23 +38,33 @@ $parks = getParks($dbc);
     		</tr>
   		</thead>
   		<tbody>
-    		<tr>
     		<?php foreach ($parks as $park): ?>
+    		<tr>
       		<td><?= $park['name']; ?></td>
       		<td><?= $park['location']; ?></td>
       		<td><?= $park['date_established']; ?></td>
       		<td><?= $park['area_in_acres']; ?></td>
-      		<?php endforeach; ?>
     		</tr>
+    		<?php endforeach; ?>
   		</tbody>
 		</table>
 		<ul class="pagination">
   			<li class="disabled"><a href="#">&laquo;</a></li>
-  			<li class="active"><a href="#">1</a></li>
-  			<li><a href="#">2</a></li>
-  			<li><a href="#">3</a></li>
-  			<li><a href="#">4</a></li>
-  			<li><a href="#">5</a></li>
+  			<li class="active"><a href="#">1-4</a></li>
+  			<li><a href="#">5-8</a></li>
+  			<li><a href="#">9-12</a></li>
+  			<li><a href="#">12-15</a></li>
+  			<li><a href="#">16-20</a></li>
+  			<li><a href="#">21-24</a></li>
+  			<li><a href="#">25-28</a></li>
+  			<li><a href="#">29-32</a></li>
+  			<li><a href="#">33-36</a></li>
+  			<li><a href="#">37-40</a></li>
+  			<li><a href="#">41-44</a></li>
+  			<li><a href="#">45-48</a></li>
+  			<li><a href="#">49-52</a></li>
+  			<li><a href="#">53-56</a></li>
+  			<li><a href="#">57-59</a></li>
   			<li><a href="#">&raquo;</a></li>
 		</ul> 
 	</div>
