@@ -6,16 +6,13 @@ define ('DB_PASS', 'parksrocks');
 require_once('../db_connect.php');
 
 function getParks($dbc){
-	$stm = $dbc->query("SELECT * FROM national_parks;");
+	$offset = (!empty($_GET)) ? ($_GET['offset']) : 0;
+	$stm = $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET ".$offset);
 	$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
+	$parkCount = $stm->rowCount();
 	return $rows;
 }
 
-function getLocation($dbc){
-	$stm = $dbc->query("SELECT location FROM national_parks;");
-	$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
-	return $rows;
-}
 $parks = getParks($dbc);
 
 ?>
@@ -31,6 +28,7 @@ $parks = getParks($dbc);
   		<h1>National Parks</h1>
   		<thead>
     		<tr>
+    		<th>ID</th>
       		<th>Name</th>
       		<th>Location</th>
       		<th>Date Established</th>
@@ -40,6 +38,7 @@ $parks = getParks($dbc);
   		<tbody>
     		<?php foreach ($parks as $park): ?>
     		<tr>
+    		<td><?= $park['id']; ?></td>
       		<td><?= $park['name']; ?></td>
       		<td><?= $park['location']; ?></td>
       		<td><?= $park['date_established']; ?></td>
@@ -48,25 +47,10 @@ $parks = getParks($dbc);
     		<?php endforeach; ?>
   		</tbody>
 		</table>
-		<ul class="pagination">
-  			<li class="disabled"><a href="#">&laquo;</a></li>
-  			<li class="active"><a href="#">1-4</a></li>
-  			<li><a href="#">5-8</a></li>
-  			<li><a href="#">9-12</a></li>
-  			<li><a href="#">12-15</a></li>
-  			<li><a href="#">16-20</a></li>
-  			<li><a href="#">21-24</a></li>
-  			<li><a href="#">25-28</a></li>
-  			<li><a href="#">29-32</a></li>
-  			<li><a href="#">33-36</a></li>
-  			<li><a href="#">37-40</a></li>
-  			<li><a href="#">41-44</a></li>
-  			<li><a href="#">45-48</a></li>
-  			<li><a href="#">49-52</a></li>
-  			<li><a href="#">53-56</a></li>
-  			<li><a href="#">57-59</a></li>
-  			<li><a href="#">&raquo;</a></li>
-		</ul> 
+		<br>
+		<?php for($i = 0; $i <= 59; $i+=4) : ?>
+			<a href="national_parks.php?offset=<?=$i?>"><div class="btn btn-primary"><?=($i+1)?> - <?=($i+4)?></div></a>
+			<?php endfor; ?>
 	</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
