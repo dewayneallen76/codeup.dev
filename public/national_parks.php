@@ -4,16 +4,26 @@ define ('DB_NAME', 'dbname=parks_db');
 define ('DB_USER', 'parks_user');
 define ('DB_PASS', 'parksrocks');
 require_once('../db_connect.php');
-
-function getParks($dbc){
+// PAGE CONTROLLER TO CALL PARKS FROM DATABASE AND COUNT OF TOTAL ROWS. 
+function pageController($dbc) {
 	$offset = (!empty($_GET)) ? ($_GET['offset']) : 0;
-	$stm = $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET ".$offset);
-	$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
-	$parkCount = $stm->rowCount();
-	return $rows;
-}
+	$stm = $dbc->query("SELECT * FROM national_parks");
+	return [ 
+		'parks' => $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET ".$offset)->fetchAll(PDO::FETCH_ASSOC),
+		'totalParks' => $stm->rowCount()
+	];
+};
+extract (pageController($dbc));
+// FUNCTION THAT I WROTE BEFORE ADDING PAGE CONTROLLER 
 
-$parks = getParks($dbc);
+// function getParks($dbc){
+// 	$offset = (!empty($_GET)) ? ($_GET['offset']) : 0;
+// 	$stm = $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET ".$offset);
+// 	$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
+// 	$parkCount = $stm->rowCount();
+// 	return $rows;
+// };
+// $parks = getParks($dbc);
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +45,8 @@ $parks = getParks($dbc);
       		<th>Area in Acres</th>
     		</tr>
   		</thead>
-  		<tbody>
+  		<tbody> 
+  		<!-- PHP FOR EACH LOOP TO ADD EACH PARK AND ITS INFORMATION INTO TABLE -->
     		<?php foreach ($parks as $park): ?>
     		<tr>
     		<td><?= $park['id']; ?></td>
@@ -48,8 +59,9 @@ $parks = getParks($dbc);
   		</tbody>
 		</table>
 		<br>
-		<?php for($i = 0; $i <= 59; $i+=4) : ?>
-			<a href="national_parks.php?offset=<?=$i?>"><div class="btn btn-primary"><?=($i+1)?> - <?=($i+4)?></div></a>
+		<!-- PHP FOR LOOP TO LOOP THROUGH TOTAL PARKS, AND CREATE BUTTON USING QUERY STRING -->
+		<?php for($i = 0; $i <= $totalParks; $i+=4) : ?>
+			<a href="national_parks.php?offset=<?=$i?>"><div class="btn btn-primary btn-sm"><?=($i+1)?> - <?=($i+4)?></div></a>
 			<?php endfor; ?>
 	</div>
 </body>
