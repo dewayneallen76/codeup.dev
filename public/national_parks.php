@@ -42,15 +42,15 @@ extract (pageController($dbc));
   		</thead>
   		<tbody> 
   		<!-- PHP FOR EACH LOOP TO ADD EACH PARK AND ITS INFORMATION INTO TABLE -->
-    		<?php foreach ($parks as $park): ?>
+    	<?php foreach ($parks as $park): ?>
     		<tr>
-    		<td><?= $park['id']; ?></td>
-      		<td><?= $park['name']; ?></td>
-      		<td><?= $park['location']; ?></td>
-      		<td><?= $park['date_established']; ?></td>
-      		<td><?= $park['area_in_acres']; ?></td>
+    			<td><?= $park['id']; ?></td>
+      			<td><?= $park['name']; ?></td>
+      			<td><?= $park['location']; ?></td>
+      			<td><?= $park['date_established']; ?></td>
+      			<td><?= number_format($park['area_in_acres']); ?></td>
     		</tr>
-    		<?php endforeach; ?>
+    	<?php endforeach; ?>
   		</tbody>
 		</table>
 		<br>
