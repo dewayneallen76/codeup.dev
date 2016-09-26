@@ -85,6 +85,6 @@ foreach ($parks as $park) {
 
 }
 
-
+echo "Inserted ID: " .$dbc->lastInsertId() . PHP_EOL;
 
  ?>
