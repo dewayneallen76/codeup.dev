@@ -1,8 +1,5 @@
 <?php 
-define ('DB_HOST', 'mysql:host=127.0.0.1');
-define ('DB_NAME', 'dbname=parks_db');
-define ('DB_USER', 'parks_user');
-define ('DB_PASS', 'parksrocks');
+require_once('../national_parks_config.php');
 require_once('../db_connect.php');
 // PAGE CONTROLLER TO CALL PARKS FROM DATABASE AND COUNT OF TOTAL ROWS. 
 function pageController($dbc) {
@@ -15,9 +12,7 @@ function pageController($dbc) {
 };
 extract (pageController($dbc));
 // FUNCTION THAT I WROTE BEFORE ADDING PAGE CONTROLLER 
-
 // function getParks($dbc){
-// 	$offset = (!empty($_GET)) ? ($_GET['offset']) : 0;
 // 	$stm = $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET ".$offset);
 // 	$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
 // 	$parkCount = $stm->rowCount();
