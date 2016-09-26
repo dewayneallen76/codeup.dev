@@ -3,11 +3,17 @@ require_once('../national_parks_config.php');
 require_once('../db_connect.php');
 // PAGE CONTROLLER TO CALL PARKS FROM DATABASE AND COUNT OF TOTAL ROWS. 
 function pageController($dbc) {
-	$offset = (!empty($_GET)) ? ($_GET['offset']) : 0;
-	$stm = $dbc->query("SELECT * FROM national_parks");
+	$offset = (isset($_GET['offset'])) ? ($_GET['offset']) : 0;
+	$query = ("SELECT * FROM national_parks");
+	$stmt = $dbc->prepare($query);
+	$stmt->execute();
+	$query2 = ("SELECT * FROM national_parks LIMIT 4 OFFSET ".$offset);
+	$stmt2 = $dbc->prepare($query2);
+	$stmt2->execute();
+	$parks = $stmt2 ->fetchAll(PDO::FETCH_ASSOC);
 	return [ 
-		'parks' => $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET ".$offset)->fetchAll(PDO::FETCH_ASSOC),
-		'totalParks' => $stm->rowCount()
+		'parks' => $parks,
+		'totalParks' => $stmt->rowCount()
 	];
 };
 extract (pageController($dbc));
@@ -38,6 +44,7 @@ extract (pageController($dbc));
       		<th>Location</th>
       		<th>Date Established</th>
       		<th>Area in Acres</th>
+      		<th>Description</th>
     		</tr>
   		</thead>
   		<tbody> 
@@ -49,6 +56,7 @@ extract (pageController($dbc));
       			<td><?= $park['location']; ?></td>
       			<td><?= $park['date_established']; ?></td>
       			<td><?= number_format($park['area_in_acres']); ?></td>
+      			<td><?= $park['description']; ?></td>
     		</tr>
     	<?php endforeach; ?>
   		</tbody>
@@ -60,6 +68,6 @@ extract (pageController($dbc));
 			<?php endfor; ?>
 	</div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>
 
