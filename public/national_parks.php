@@ -148,6 +148,7 @@ extract (pageController($dbc));
 			</div>
 			<input class="btn btn-default btn-lg btn-block btn-primary" type="submit" value="Submit">
 		</form>	
+		<br>
 	</div>
 </body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
