@@ -9,11 +9,11 @@ function submitNewPark($dbc)
 	
 	$stmt = $dbc->prepare($query);
 
-	$stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
-	$stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
-	$stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_INT);
-	$stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
-	$stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+	$stmt->bindValue(':name', htmlspecialchars(strip_tags($_POST['name'])), PDO::PARAM_STR);
+	$stmt->bindValue(':location', htmlspecialchars(strip_tags($_POST['location'])), PDO::PARAM_STR);
+	$stmt->bindValue(':date_established', htmlspecialchars(strip_tags($_POST['date_established'])), PDO::PARAM_INT);
+	$stmt->bindValue(':area_in_acres', htmlspecialchars(strip_tags($_POST['area_in_acres'])), PDO::PARAM_INT);
+	$stmt->bindValue(':description', htmlspecialchars(strip_tags($_POST['description'])), PDO::PARAM_STR);
 
 	$stmt->execute();
 }
@@ -50,6 +50,8 @@ extract (pageController($dbc));
 	<title>National Parks</title>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+<style>
+</style>
 <body>
 	<div class="container-fluid">
 		<h1>National Parks</h1>
@@ -66,7 +68,7 @@ extract (pageController($dbc));
 			</thead>
 			<tbody> 
 		<!-- PHP FOR EACH LOOP TO ADD EACH PARK AND ITS INFORMATION INTO TABLE -->
-			<?php foreach ($parks as $park): ?>
+				<?php foreach ($parks as $park): ?>
 				<tr>
 					<td><?= $park['id']; ?></td>
 					<td><?= $park['name']; ?></td>
@@ -75,7 +77,7 @@ extract (pageController($dbc));
 					<td><?= number_format($park['area_in_acres']); ?></td>
 					<td><?= $park['description']; ?></td>
 				</tr>
-			<?php endforeach; ?>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
 		<br>
@@ -87,7 +89,7 @@ extract (pageController($dbc));
 				<div class="btn btn-primary"><</div>
 				</a>
 				<?php }
-			} ?>
+		} ?>
 		<!-- PHP FOR LOOP TO LOOP THROUGH TOTAL PARKS, AND CREATE BUTTON USING QUERY STRING -->
 		<?php $page = 1;
 			for ($i = 1; $i <= $totalParks; $i+=$limit) { ?>
@@ -104,13 +106,13 @@ extract (pageController($dbc));
 						<div class="btn btn-primary">></div>
 					</a>
 				<?php }
-			} else {?>
-				<a href="national_parks.php?page=2">
+				} else {?>
+					<a href="national_parks.php?page=2">
 						<div class="btn btn-primary">></div>
 					</a>
-			<?php } ?>	
+				<?php } ?>	
 		<br>
-			<h1 class="text_center">Add A New Park</h1>
+		<h1 class="text_center">Add A New Park</h1>
 		<br>
 	<!-- FORM TO ADD A NEW PARK TO THE DATABASE -->
 		<form class="form-horizontal" method="post">
