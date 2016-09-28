@@ -4,7 +4,7 @@
 class Model 
 {
 	// An attributes property (array) that is not visible outside of the class
-	protected $attributes = [];
+	private $attributes = [];
 	// A magic getter to retrieve values from the attributes array based on the key name, provided the key exists.
 	public function __get($name) 
 	{
