@@ -54,8 +54,8 @@ extract (pageController($dbc));
 </style>
 <body>
 	<div class="container-fluid">
-		<h1>National Parks</h1>
-		<table class="table table-striped table-hover ">
+		<h1 class="text-center">National Parks</h1>
+		<table class="table table-striped table-hover table-bordered">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -86,7 +86,7 @@ extract (pageController($dbc));
 		<?php if (!empty($_GET)){ 
 			if ($_GET['page'] != 1){ ?>
 				<a href="national_parks.php?page=<?=($_GET['page']-1)?>">
-				<div class="btn btn-primary"><</div>
+				<div class="btn btn-lg btn-primary">Prev</div>
 				</a>
 				<?php }
 		} ?>
@@ -94,7 +94,7 @@ extract (pageController($dbc));
 		<?php $page = 1;
 			for ($i = 1; $i <= $totalParks; $i+=$limit) { ?>
 				<a href="national_parks.php?page=<?=$page?>"> 
-					<div class="btn btn-primary">
+					<div class="btn btn-lg btn-primary">
 						<?=$page++?>	
 					</div>
 				</a>
@@ -103,16 +103,16 @@ extract (pageController($dbc));
 			if (!empty($_GET)){ 
 				if (($_GET['page']+1) < $page) { ?>
 					<a href="national_parks.php?page=<?=($_GET['page']+1)?>">
-						<div class="btn btn-primary">></div>
+						<div class="btn btn-lg btn-primary">Next</div>
 					</a>
 				<?php }
 				} else {?>
 					<a href="national_parks.php?page=2">
-						<div class="btn btn-primary">></div>
+						<div class="btn btn-lg btn-primary">Next</div>
 					</a>
 				<?php } ?>	
 		<br>
-		<h1 class="text_center">Add A New Park</h1>
+		<h1 class="text-center">Add A New Park</h1>
 		<br>
 	<!-- FORM TO ADD A NEW PARK TO THE DATABASE -->
 		<form class="form-horizontal" method="post">
