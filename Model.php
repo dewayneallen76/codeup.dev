@@ -20,10 +20,11 @@ class Model
 	}
 	// Open your Model class from the previous lesson. Add a new protected static property named $table. 
 	// (PHP IV: Late Static Binding)
-	protected static $table = 'database table'; 
-
+	protected static $table = 'database table goes here'; 
+	// In the Model class, add a static method named getTableName() that returns the value of the static 
+	// property $table. (PHP IV: Late Static Binding)
 	public static function getTableName() {
-		return self::$table;
+		return static::$table;
 	}
 }
 // Test your new Model class by adding key/value pairs and retrieving them.
