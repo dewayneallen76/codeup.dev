@@ -37,8 +37,7 @@ class Input
     // public static function getString($key)
     public static function getString($key) 
     {
-        if(! self::has($key))  
-        {
+        if(! self::has($key)) {
             throw new Exception("Request does not have a key: '$key'"); 
         }
         $value = self::get($key);
@@ -50,8 +49,7 @@ class Input
     // public static function getNumber($key)
     public static function getNumber($key) 
     {
-        if(! self::has($key))  
-        {
+        if(! self::has($key)) {
             throw new Exception("Request does not have a key: '$key'"); 
         }
         $value = self::get($key);
