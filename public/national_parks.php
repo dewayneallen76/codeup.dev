@@ -6,25 +6,55 @@ require_once ('../input.php');
 // FUNCTION CREATED USING PREPARED STATEMENTS USING POST TO ADD NEW PARK TO DATABASE.
 function submitNewPark($dbc) 
 {
+	$errors = [];
+	try {
+		$name = Input::getString('name');	
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+	try {
+		$location = Input::getString('location');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+	try {
+		$date_established = Input::getString('date_established');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+	try {
+		$area_in_acres = Input::getNumber('area_in_acres');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+	try {
+		$description = Input::getString('description');
+		} catch (Exception $e) {
+			$errors[] = $e->getMessage();
+		}
+	
 	$query = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
 	
 	$stmt = $dbc->prepare($query);
 // Update your national_parks.php page to use your updated Input class and the appropriate method for the //different form fields.
 	$stmt->bindValue(':name', htmlspecialchars(strip_tags(Input::getString('name'))), PDO::PARAM_STR);
-	$stmt->bindValue(':location', htmlspecialchars(strip_tags(Input::getString('name'))), PDO::PARAM_STR);
+	$stmt->bindValue(':location', htmlspecialchars(strip_tags(Input::getString('location'))), PDO::PARAM_STR);
 	$stmt->bindValue(':date_established', htmlspecialchars(strip_tags(Input::getString('date_established'))), PDO::PARAM_INT);
-	$stmt->bindValue(':area_in_acres', htmlspecialchars(strip_tags(Input::getNumber('area_in_acres'))), PDO::PARAM_INT);
+	$stmt->bindValue(':area_in_acres', htmlspecialchars(strip_tags(Input::getNumber('area_in_acres'))), PDO::PARAM_INT);	
 	$stmt->bindValue(':description', htmlspecialchars(strip_tags(Input::getString('description'))), PDO::PARAM_STR);
 
 	$stmt->execute();
-}
 
+
+if(Input::get('name')) {
+	submitNewPark($dbc);
+	};
+var_dump($errors);
+}
 // PAGE CONTROLLER  
 function pageController($dbc) 
 {
-	if(isset($_POST['name'])) {
-	submitNewPark($dbc);
-	};
+	
 	$limit = 4;
 	$offset = (isset($_GET['page'])) ? (($_GET['page'] -1) * $limit) : 0;
 	$query = ('SELECT * FROM national_parks');
