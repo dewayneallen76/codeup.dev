@@ -42,7 +42,7 @@ class Input
         }
         $value = self::get($key);
         if (gettype($value) != 'string') {
-            throw new Exception("Value at index '$key' is not a string!")
+            throw new Exception("Value at index '$key' is not a string!");
         }
         return $value;
     }
@@ -53,8 +53,8 @@ class Input
             throw new Exception("Request does not have a key: '$key'"); 
         }
         $value = self::get($key);
-        if (! is_numeric($value) {
-            throw new Exception("Value at index '$key' is not a number!")
+        if (! is_numeric($value)) {
+            throw new Exception("Value at index '$key' is not a number!");
         }
         return $value;
     }
