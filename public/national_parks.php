@@ -1,6 +1,7 @@
 <?php 
-require_once('../national_parks_config.php');
-require_once('../db_connect.php');
+require_once ('../national_parks_config.php');
+require_once ('../db_connect.php');
+require_once ('../input.php');
 
 // FUNCTION CREATED USING PREPARED STATEMENTS USING POST TO ADD NEW PARK TO DATABASE.
 function submitNewPark($dbc) 
@@ -8,12 +9,12 @@ function submitNewPark($dbc)
 	$query = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
 	
 	$stmt = $dbc->prepare($query);
-
-	$stmt->bindValue(':name', htmlspecialchars(strip_tags($_POST['name'])), PDO::PARAM_STR);
-	$stmt->bindValue(':location', htmlspecialchars(strip_tags($_POST['location'])), PDO::PARAM_STR);
-	$stmt->bindValue(':date_established', htmlspecialchars(strip_tags($_POST['date_established'])), PDO::PARAM_INT);
-	$stmt->bindValue(':area_in_acres', htmlspecialchars(strip_tags($_POST['area_in_acres'])), PDO::PARAM_INT);
-	$stmt->bindValue(':description', htmlspecialchars(strip_tags($_POST['description'])), PDO::PARAM_STR);
+// Update your national_parks.php page to use your updated Input class and the appropriate method for the //different form fields.
+	$stmt->bindValue(':name', htmlspecialchars(strip_tags(Input::getString('name'))), PDO::PARAM_STR);
+	$stmt->bindValue(':location', htmlspecialchars(strip_tags(Input::getString('name'))), PDO::PARAM_STR);
+	$stmt->bindValue(':date_established', htmlspecialchars(strip_tags(Input::getString('date_established'))), PDO::PARAM_INT);
+	$stmt->bindValue(':area_in_acres', htmlspecialchars(strip_tags(Input::getNumber('area_in_acres'))), PDO::PARAM_INT);
+	$stmt->bindValue(':description', htmlspecialchars(strip_tags(Input::getString('description'))), PDO::PARAM_STR);
 
 	$stmt->execute();
 }
