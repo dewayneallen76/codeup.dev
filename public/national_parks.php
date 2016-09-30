@@ -55,7 +55,7 @@ if(Input::get('name')) {
 function pageController($dbc) 
 {
 	
-	$limit = 10;
+	$limit = 4;
 	$offset = (isset($_GET['page'])) ? (($_GET['page'] -1) * $limit) : 0;
 	$query = ('SELECT * FROM national_parks');
 	$stmt = $dbc->prepare($query);
