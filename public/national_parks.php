@@ -45,17 +45,17 @@ function submitNewPark($dbc)
 
 	$stmt->execute();
 
+}
 
 if(Input::get('name')) {
 	submitNewPark($dbc);
 	};
-var_dump($errors);
-}
+
 // PAGE CONTROLLER  
 function pageController($dbc) 
 {
 	
-	$limit = 4;
+	$limit = 10;
 	$offset = (isset($_GET['page'])) ? (($_GET['page'] -1) * $limit) : 0;
 	$query = ('SELECT * FROM national_parks');
 	$stmt = $dbc->prepare($query);
@@ -82,6 +82,9 @@ extract (pageController($dbc));
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
 <style>
+.buttons {
+	margin-left: 15px;
+}
 </style>
 <body>
 	<div class="container-fluid">
@@ -114,10 +117,11 @@ extract (pageController($dbc));
 		<br>
 		<!-- BUTTONS -->
 		<!-- PHP TO ADD BACK BUTTON -->
+		<div class="container-fluid content-center buttons">
 		<?php if (!empty($_GET)){ 
 			if ($_GET['page'] != 1){ ?>
 				<a href="national_parks.php?page=<?=($_GET['page']-1)?>">
-				<div class="btn btn-lg btn-primary">Prev</div>
+				<div class="btn btn-lg btn-primary"><</div>
 				</a>
 				<?php }
 		} ?>
@@ -134,14 +138,15 @@ extract (pageController($dbc));
 			if (!empty($_GET)){ 
 				if (($_GET['page']+1) < $page) { ?>
 					<a href="national_parks.php?page=<?=($_GET['page']+1)?>">
-						<div class="btn btn-lg btn-primary">Next</div>
+						<div class="btn btn-lg btn-primary">></div>
 					</a>
 				<?php }
 				} else {?>
 					<a href="national_parks.php?page=2">
-						<div class="btn btn-lg btn-primary">Next</div>
+						<div class="btn btn-lg btn-primary">></div>
 					</a>
-				<?php } ?>	
+				<?php } ?>
+		</div>	
 		<br>
 		<h1 class="text-center">Add A New Park</h1>
 		<br>
@@ -174,7 +179,7 @@ extract (pageController($dbc));
 			<div class="form-group">
 				<label for="description" class="col-sm-2 control-label">Description</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="description" placeholder="Description" 	required>
+					<textarea type="text" class="form-control" name="description" placeholder="Description" 	required></textarea>
 				</div>
 			</div>
 			<input class="btn btn-default btn-lg btn-block btn-primary" type="submit" value="Submit">
@@ -182,6 +187,8 @@ extract (pageController($dbc));
 		<br>
 	</div>
 </body>
+<script   src="https://code.jquery.com/jquery-1.12.4.js"   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </html>
 
