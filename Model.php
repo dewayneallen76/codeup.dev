@@ -1,39 +1,91 @@
-<?php 
-// Create new file named Model.php
-// Create a Model class
-class Model 
+<?php
+
+abstract class Model
 {
-	// An attributes property (array) that is not visible outside of the class
-	protected $attributes = [];
-	// A magic getter to retrieve values from the attributes array based on the key name, provided the key exists.
-	public function __get($name) 
-	{
-		if(isset($this->attributes[$name])) {
-			return $this->attributes[$name];
-		}
-		return null;
-	}
-	// A magic setter to create key/value pairs in the attributes array.
-	public function __set($name, $value) 
-	{
-		$this->attributes[$name] = $value;
-	}
-	// Open your Model class from the previous lesson. Add a new protected static property named $table. 
-	// (PHP IV: Late Static Binding)
-	protected static $table = 'database table goes here'; 
-	// In the Model class, add a static method named getTableName() that returns the value of the static 
-	// property $table. (PHP IV: Late Static Binding)
-	public static function getTableName() {
-		return static::$table;
-	}
+    /** @var PDO|null Connection to the database */
+    protected static $dbc = null;
+
+    /** @var array Database values for a single record. Array keys should be column names in the DB */
+    protected $attributes = array();
+
+    /**
+     * Constructor
+     *
+     * An instance of a class derived from Model represents a single record in the database.
+     *
+     * $param array $attributes Optional array of database values to initialize the model record with
+     */
+    public function __construct(array $attributes = array())
+    {
+        self::dbConnect();
+
+        // @TODO: Initialize the $attributes property with the passed value
+        $this->__get($attributes[$name]);
+    }
+
+    /**
+     * Connect to the DB
+     *
+     * This method should be called at the beginning of any function that needs to communicate with the database
+     */
+    protected static function dbConnect()
+    {
+        if (!self::$dbc) {
+            // @TODO: Connect to database
+            require_once('db_connect.php');
+            self::$dbc = $dbc;
+        }
+    }
+
+    /**
+     * Get a value from attributes based on its name
+     *
+     * @param string $name key for attributes array
+     *
+     * @return mixed|null value from the attributes array or null if it is undefined
+     */
+    public function __get($name)
+    {
+        // @TODO: Return the value from attributes for $name if it exists, else return null
+        if(isset($this->attributes[$name])) {
+            return $this->attributes[$name];
+        }
+        return null;
+    }
+
+    /**
+     * Set a new value for a key in attributes
+     *
+     * @param string $name  key for attributes array
+     * @param mixed  $value value to be saved in attributes array
+     */
+    public function __set($name, $value)
+    {
+        // @TODO: Store name/value pair in attributes array
+        $this->attributes[$name] = $value;
+    }
+
+    /** Store the object in the database */
+    public function save()
+    {
+        // @TODO: Ensure there are values in the attributes array before attempting to save
+        if(!empty(this->attributes) && (isset(this->attributes[$id])) {
+            $this->update($this->attributes['id']);
+        }
+        // @TODO: Call the proper database method: if the `id` is set this is an update, else it is a insert
+        $this->insert($this->attributes['id']);
+    }
+
+    /**
+     * Insert new entry into database
+     *
+     * NOTE: Because this method is abstract, any child class MUST have it defined.
+     */
+    protected abstract function insert();
+    /**
+     * Update existing entry in database
+     *
+     * NOTE: Because this method is abstract, any child class MUST have it defined.
+     */
+    protected abstract function update();
 }
-// Test your new Model class by adding key/value pairs and retrieving them.
-$test = new Model;
-$test->name = 'Dewayne Allen';
-$test->phone_number = '123456789';
-$test->email = 'dallen@here.com';
-
-var_dump($test);
-
-
- ?>
