@@ -6,7 +6,6 @@ require_once ('../input.php');
 // FUNCTION CREATED USING PREPARED STATEMENTS USING POST TO ADD NEW PARK TO DATABASE.
 function submitNewPark($dbc) 
 {
-	$errors = [];
 	try {
 		$name = Input::getString('name');	
 		} catch (Exception $e) {
@@ -32,11 +31,13 @@ function submitNewPark($dbc)
 		} catch (Exception $e) {
 			$errors[] = $e->getMessage();
 		}
+
 	
 	$query = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
 	
 	$stmt = $dbc->prepare($query);
 // Update your national_parks.php page to use your updated Input class and the appropriate method for the //different form fields.
+	if(count(Input::$errors) == 0) {
 	$stmt->bindValue(':name', htmlspecialchars(strip_tags(Input::getString('name'))), PDO::PARAM_STR);
 	$stmt->bindValue(':location', htmlspecialchars(strip_tags(Input::getString('location'))), PDO::PARAM_STR);
 	$stmt->bindValue(':date_established', htmlspecialchars(strip_tags(Input::getString('date_established'))), PDO::PARAM_INT);
@@ -45,16 +46,17 @@ function submitNewPark($dbc)
 
 	$stmt->execute();
 
+	}
 }
 
-if(Input::get('name')) {
-	submitNewPark($dbc);
-	};
+
 
 // PAGE CONTROLLER  
 function pageController($dbc) 
 {
-	
+	if(Input::get('name')) {
+	submitNewPark($dbc);
+	};
 	$limit = 4;
 	$offset = (isset($_GET['page'])) ? (($_GET['page'] -1) * $limit) : 0;
 	$query = ('SELECT * FROM national_parks');
@@ -151,6 +153,9 @@ extract (pageController($dbc));
 		<h1 class="text-center">Add A New Park</h1>
 		<br>
 	<!-- FORM TO ADD A NEW PARK TO THE DATABASE -->
+		<?php foreach (Input::$errors as $error) { ?>
+				<h2 style="color: red;"><?= $error ?></h2>
+			<?php }?>
 		<form class="form-horizontal" method="post">
 			<div class="form-group">
 				<label for="park_name" class="col-sm-2 control-label">Park Name</label>
@@ -167,7 +172,7 @@ extract (pageController($dbc));
 			<div class="form-group">
 				<label for="date_established" class="col-sm-2 control-label">Date Established</label>
 				<div class="col-sm-10">
-					<input type="date" class="form-control" name="date_established" placeholder="Date 	Established YYYY-MM-DD" required>
+					<input type="date" class="form-control" name="date_established" placeholder="Date Established YYYY-MM-DD" required>
 				</div>
 			</div>
 			<div class="form-group">
@@ -179,7 +184,7 @@ extract (pageController($dbc));
 			<div class="form-group">
 				<label for="description" class="col-sm-2 control-label">Description</label>
 				<div class="col-sm-10">
-					<textarea type="text" class="form-control" name="description" placeholder="Description" 	required></textarea>
+					<textarea type="text" class="form-control" name="description" placeholder="Description" required></textarea>
 				</div>
 			</div>
 			<input class="btn btn-default btn-lg btn-block btn-primary" type="submit" value="Submit">
@@ -187,7 +192,8 @@ extract (pageController($dbc));
 		<br>
 	</div>
 </body>
-<script   src="https://code.jquery.com/jquery-1.12.4.js"   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="   crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </html>
