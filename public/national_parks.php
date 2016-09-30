@@ -9,35 +9,35 @@ function submitNewPark($dbc)
 	try {
 		$name = Input::getString('name');	
 		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
+			$errors['name'] = $e->getMessage();
 		}
 	try {
 		$location = Input::getString('location');
 		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
+			$errors['location'] = $e->getMessage();
 		}
 	try {
 		$date_established = Input::getString('date_established');
 		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
+			$errors['date_established'] = $e->getMessage();
 		}
 	try {
 		$area_in_acres = Input::getNumber('area_in_acres');
 		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
+			$errors['area_in_acres'] = $e->getMessage();
 		}
 	try {
 		$description = Input::getString('description');
 		} catch (Exception $e) {
-			$errors[] = $e->getMessage();
+			$errors['description'] = $e->getMessage();
 		}
 
-	
+	if(count(Input::$errors) == 0) {
 	$query = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
 	
 	$stmt = $dbc->prepare($query);
 // Update your national_parks.php page to use your updated Input class and the appropriate method for the //different form fields.
-	if(count(Input::$errors) == 0) {
+	
 	$stmt->bindValue(':name', htmlspecialchars(strip_tags(Input::getString('name'))), PDO::PARAM_STR);
 	$stmt->bindValue(':location', htmlspecialchars(strip_tags(Input::getString('location'))), PDO::PARAM_STR);
 	$stmt->bindValue(':date_established', htmlspecialchars(strip_tags(Input::getString('date_established'))), PDO::PARAM_INT);
