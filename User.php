@@ -17,7 +17,7 @@ class User extends Model
         // @TODO: You will need to iterate through all the attributes to build the prepared query
         foreach($this->attributes as $columns => $value) 
         {
-            if($columns == '' && $value_placeholders = '') 
+            if($columns == '' && $value_placeholders == '') 
             {
                 $columns .= $column;
                 $value_placeholders .= ':' . $column;
@@ -30,7 +30,7 @@ class User extends Model
         }
         // @TODO: After the insert, add the id back to the attributes array
         //        so the object properly represents a DB record
-        $query = "INSERT INTO" . static::table . "({$columns}) VALUES ({$value_placeholders})";
+        $query = "INSERT INTO " . static::table . " ({$columns}) VALUES ({$value_placeholders})";
     
         $stmt = self::dbc->prepare($query);
 
@@ -46,9 +46,33 @@ class User extends Model
     /** Update existing entry in the database */
     protected function update()
     {
+        $query = "UPDATE " . static::$table . " SET ";
+        $first_value = true;
         // @TODO: Use prepared statements to ensure data security
-
         // @TODO: You will need to iterate through all the attributes to build the prepared query
+        if($key == 'id')
+        {
+            continue;
+        }
+        if($first_value) 
+        {
+            $first_value == false;
+            $query .= $key . '= :' . $key;
+        } 
+        else 
+        {
+            $query .= ',' . $key . '= :' . $key;
+        }
+
+        $query .= ' WHERE id = :id';
+
+        $stmt = self::$dbc->prepare($query);
+
+        foreach($this->attributes as $key => $value) {
+            $stmt->bindValue(':' . $key, $value, PDO::PARAM_STR);
+        }
+
+        $stmt->execute();
     }
 
     /**
@@ -64,13 +88,18 @@ class User extends Model
         self::dbConnect();
 
         // @TODO: Create select statement using prepared statements
+        $query = 'SELECT * FROM ' . static::$table . ' WHERE id = :id';
 
+        $stmt = self::$dbc->prepare($query);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
         // @TODO: Store the result in a variable named $result
-
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
         if ($result) {
             $instance = new static($result);
+            $instance->attributes = $result;
         }
         return $instance;
     }
@@ -83,7 +112,20 @@ class User extends Model
     public static function all()
     {
         self::dbConnect();
-
         // @TODO: Learning from the find method, return all the matching records
+        $query = 'SELECT * FROM ' . static::$table;
+
+        $stmt = self::$dbc->prepare($query);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $instance = null;
+        if ($result) {
+            $instance = new static($result);
+            $instance->attributes = $result;
+        }
+        return $instance;
+
     }
 }
