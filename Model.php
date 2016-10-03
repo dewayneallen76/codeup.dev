@@ -73,7 +73,7 @@ abstract class Model
             $this->update($this->attributes['id']);
         }
         // @TODO: Call the proper database method: if the `id` is set this is an update, else it is a insert
-        $this->insert($this->attributes['id']);
+            $this->insert();
     }
 
     /**
@@ -81,7 +81,12 @@ abstract class Model
      *
      * NOTE: Because this method is abstract, any child class MUST have it defined.
      */
-    protected abstract function insert();
+    protected abstract function insert()
+    {
+        
+
+    }
+
     /**
      * Update existing entry in database
      *
