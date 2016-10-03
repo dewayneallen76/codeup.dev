@@ -32,8 +32,10 @@ abstract class Model
     {
         if (!self::$dbc) {
             // @TODO: Connect to database
-            require_once('db_connect.php');
-            self::$dbc = $dbc;
+            self::$dbc = new PDO('mysql:host='. DB_HOST .';dbname='. DB_NAME, DB_USER, DB_PASS);
+
+            // Tell PDO to throw exceptions on error
+            self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
     }
 
