@@ -4,18 +4,43 @@
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
 require_once __DIR__ . '/Model.php';
 
+protected static $table = null;
+
 class User extends Model
 {
     /** Insert a new entry into the database */
     protected function insert()
     {
-
         // @TODO: Use prepared statements to ensure data security
-
+        $columns = '';
+        $value_placeholders = '';
         // @TODO: You will need to iterate through all the attributes to build the prepared query
-
+        foreach($this->attributes as $columns => $value) 
+        {
+            if($columns == '' && $value_placeholders = '') 
+            {
+                $columns .= $column;
+                $value_placeholders .= ':' . $column;
+            }
+            else 
+            {
+                $columns .= ',' . $column;
+                $value_placeholders .= ',:' . $column;
+            } 
+        }
         // @TODO: After the insert, add the id back to the attributes array
         //        so the object properly represents a DB record
+        $query = "INSERT INTO" . static::table . "({$columns}) VALUES ({$value_placeholders})";
+    
+        $stmt = self::dbc->prepare($query);
+
+        foreach($this->attributes as $columns => $value) {
+            $stmt->bindValue(':' . $column, $value, PDO::PARAM_STR);
+        }
+
+        $stmt->execute();
+
+        $this->attributes['id'] = self::$dbc->lastInsertID();
     }
 
     /** Update existing entry in the database */
