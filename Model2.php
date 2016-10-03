@@ -1,7 +1,7 @@
 <?php 
 // Create new file named Model.php
 // Create a Model class
-class Model 
+class Model2
 {
 	// An attributes property (array) that is not visible outside of the class
 	protected $attributes = [];
