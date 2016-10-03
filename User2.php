@@ -1,5 +1,6 @@
 <?php 
 require_once __DIR__ . '/Model.php';
+require_once __DIR__ . '/users_config.php';
 // Create a new file name User.php. (PHP IV : Late Satic Binding)
 // In this new file, create a User class that extends Model. (PHP IV : Late Static Binding)
 // This class will be very simple, and will only contain the overridden $table property, set to users. (PHP IV Late Static Binding)
