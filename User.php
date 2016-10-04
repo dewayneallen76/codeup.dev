@@ -4,7 +4,7 @@
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
 require_once __DIR__ . '/Model.php';
 
-protected static $table = null;
+// protected static $table = null;
 
 class User extends Model
 {
@@ -12,66 +12,29 @@ class User extends Model
     protected function insert()
     {
         // @TODO: Use prepared statements to ensure data security
-        $columns = '';
-        $value_placeholders = '';
+        $query = 'INSERT INTO users (name, email, password) VALUES (:name, :email, :password)';
         // @TODO: You will need to iterate through all the attributes to build the prepared query
-        foreach($this->attributes as $columns => $value) 
-        {
-            if($columns == '' && $value_placeholders == '') 
-            {
-                $columns .= $column;
-                $value_placeholders .= ':' . $column;
-            }
-            else 
-            {
-                $columns .= ',' . $column;
-                $value_placeholders .= ',:' . $column;
-            } 
-        }
+        $stmt->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+        $stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
+        $stmt->execute();
         // @TODO: After the insert, add the id back to the attributes array
         //        so the object properly represents a DB record
-        $query = "INSERT INTO " . static::table . " ({$columns}) VALUES ({$value_placeholders})";
-    
-        $stmt = self::dbc->prepare($query);
-
-        foreach($this->attributes as $columns => $value) {
-            $stmt->bindValue(':' . $column, $value, PDO::PARAM_STR);
-        }
-
-        $stmt->execute();
-
         $this->attributes['id'] = self::$dbc->lastInsertID();
     }
 
     /** Update existing entry in the database */
     protected function update()
     {
-        $query = "UPDATE " . static::$table . " SET ";
-        $first_value = true;
+        $query = 'UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id'
+        $stmt = self::$dbc->prepare($query);
         // @TODO: Use prepared statements to ensure data security
         // @TODO: You will need to iterate through all the attributes to build the prepared query
-        if($key == 'id')
-        {
-            continue;
-        }
-        if($first_value) 
-        {
-            $first_value == false;
-            $query .= $key . '= :' . $key;
-        } 
-        else 
-        {
-            $query .= ',' . $key . '= :' . $key;
-        }
+        $stmt->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+        $stmt->bindValue(':password', $this->attributes['password'], PDO::PARAM_STR);
 
-        $query .= ' WHERE id = :id';
-
-        $stmt = self::$dbc->prepare($query);
-
-        foreach($this->attributes as $key => $value) {
-            $stmt->bindValue(':' . $key, $value, PDO::PARAM_STR);
-        }
-
+        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
         $stmt->execute();
     }
 
@@ -88,9 +51,10 @@ class User extends Model
         self::dbConnect();
 
         // @TODO: Create select statement using prepared statements
-        $query = 'SELECT * FROM ' . static::$table . ' WHERE id = :id';
+        $query = 'SELECT * FROM users WHERE id = :id';
 
         $stmt = self::$dbc->prepare($query);
+        
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         // @TODO: Store the result in a variable named $result
@@ -99,7 +63,6 @@ class User extends Model
         $instance = null;
         if ($result) {
             $instance = new static($result);
-            $instance->attributes = $result;
         }
         return $instance;
     }
@@ -112,20 +75,29 @@ class User extends Model
     public static function all()
     {
         self::dbConnect();
+        
         // @TODO: Learning from the find method, return all the matching records
-        $query = 'SELECT * FROM ' . static::$table;
-
+        $query = 'SELECT * FROM users';
         $stmt = self::$dbc->prepare($query);
-        $stmt->execute();
 
+        // @TODO: Store the result in a variable named $result
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
         if ($result) {
             $instance = new static($result);
-            $instance->attributes = $result;
         }
         return $instance;
+    }
 
+    public static function delete() 
+    {
+        $query = 'DELETE FROM users WHERE id = :id';
+        $stmt = self::$dbc->perpare($query);
+
+        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
+        $stmt->execute();
     }
 }
+
