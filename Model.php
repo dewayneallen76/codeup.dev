@@ -71,11 +71,15 @@ abstract class Model
     public function save()
     {
         // @TODO: Ensure there are values in the attributes array before attempting to save
-        if(!empty(this->attributes) && (isset(this->attributes[$id])) {
+        if(!empty($this->attributes) && (isset($this->attributes['id'])) 
+        {
             $this->update($this->attributes['id']);
         }
         // @TODO: Call the proper database method: if the `id` is set this is an update, else it is a insert
+        else
+        {
             $this->insert();
+        }
     }
 
     /**
