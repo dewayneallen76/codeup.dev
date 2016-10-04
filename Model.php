@@ -20,7 +20,7 @@ abstract class Model
         self::dbConnect();
 
         // @TODO: Initialize the $attributes property with the passed value
-        $this->__get($attributes[$name]);
+        $this->attributes = $attributes;
     }
 
     /**
@@ -49,7 +49,7 @@ abstract class Model
     public function __get($name)
     {
         // @TODO: Return the value from attributes for $name if it exists, else return null
-        if(isset($this->attributes[$name])) {
+        if(array_key_exists($name, $this->attributes)) {
             return $this->attributes[$name];
         }
         return null;
@@ -71,14 +71,13 @@ abstract class Model
     public function save()
     {
         // @TODO: Ensure there are values in the attributes array before attempting to save
-        if(!empty($this->attributes) && (isset($this->attributes['id'])) 
-        {
-            $this->update($this->attributes['id']);
-        }
+        if(!empty($this->attributes)) {
         // @TODO: Call the proper database method: if the `id` is set this is an update, else it is a insert
-        else
-        {
+            if(array_key_exists('id', $this->attributes)) {
+                $this->update();
+            } else {
             $this->insert();
+            }
         }
     }
 

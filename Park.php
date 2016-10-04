@@ -1,5 +1,6 @@
 <?php 
 
+
 class Park
 {
 	protected static $dbc;
