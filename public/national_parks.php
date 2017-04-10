@@ -86,7 +86,7 @@ extract (pageController($dbc));
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
 <style>
 .buttons {
-	margin-left: 15px;
+	margin-left: 120px;
 }
 </style>
 <body>
