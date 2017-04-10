@@ -2,6 +2,7 @@
 
 require __DIR__ . '/db-connection.php';
 
+// create the query
 $createUsersTable = 'CREATE TABLE if NOT EXISTS users (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	email VARCHAR(240) NOT NULL, 
@@ -9,6 +10,7 @@ $createUsersTable = 'CREATE TABLE if NOT EXISTS users (
 	PRIMARY KEY (id)
 	)';
 
+// execute the query
 $dbc->exec($createUsersTable);
 
 
@@ -18,7 +20,7 @@ $createRolesTable = 'CREATE TABLE if NOT EXISTS roles (
 	name VARCHAR(80),
 	PRIMARY KEY (id)
 	)';
-
+// execute the query 
 $dbc->exec($createRolesTable);
 
 
