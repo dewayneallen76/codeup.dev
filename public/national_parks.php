@@ -2,7 +2,7 @@
 require_once ('../national_parks_config.php');
 require_once ('../db_connect.php');
 require_once ('../input.php');
-// require_once ('../Park.php');
+require_once ('../Park.php');
 
 // FUNCTION CREATED USING PREPARED STATEMENTS USING POST TO ADD NEW PARK TO DATABASE.
 function submitNewPark($dbc) 
