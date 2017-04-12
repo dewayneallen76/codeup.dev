@@ -88,6 +88,9 @@ extract (pageController($dbc));
 .buttons {
 	margin-left: 120px;
 }
+a:hover {
+  text-decoration: none;
+}
 </style>
 <body>
 	<div class="container-fluid">
