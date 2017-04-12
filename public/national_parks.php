@@ -164,31 +164,31 @@ a:hover {
 			<div class="form-group">
 				<label for="park_name" class="col-sm-2 control-label">Park Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="name" placeholder="Park Name" required>
+					<input type="text" class="form-control" name="name" placeholder="Park Name">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="park_location" class="col-sm-2 control-label">Location</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="location" placeholder="Park Location" required>
+					<input type="text" class="form-control" name="location" placeholder="Park Location">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="date_established" class="col-sm-2 control-label">Date Established</label>
 				<div class="col-sm-10">
-					<input type="date" class="form-control" name="date_established" placeholder="Date Established YYYY-MM-DD" required>
+					<input type="date" class="form-control" name="date_established" placeholder="Date Established YYYY-MM-DD">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="area_in_acres" class="col-sm-2 control-label">Area In Acres</label>
 				<div class="col-sm-10">
-					<input type="number" class="form-control" name="area_in_acres" placeholder="Area In Acres" required>
+					<input type="number" class="form-control" name="area_in_acres" placeholder="Area In Acres">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="description" class="col-sm-2 control-label">Description</label>
 				<div class="col-sm-10">
-					<textarea type="text" class="form-control" name="description" placeholder="Description" required></textarea>
+					<textarea type="text" class="form-control" name="description" placeholder="Description"></textarea>
 				</div>
 			</div>
 			<input class="btn btn-default btn-lg btn-block btn-primary" type="submit" value="Submit">
