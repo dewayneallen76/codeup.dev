@@ -18,6 +18,14 @@ class Log
 	private function setFilename($prefix) 
 	{
 		$this->filename = $prefix . "-". date("Y-m-d") . ".log";
+		if (!touch($this->filename)) { // check to see if the file is readable
+			echo 'File is not readable', PHP_EOL;
+			exit;
+		} 
+		if(!is_writable($this->filename)) { // check to see if the file is writable
+			echo 'File is not writable', PHP_EOL;
+			exit;
+		}
 	}
 // Open the $filename for appending and assign the file pointer to the property $handle
 	private function setHandle($prefix) 
