@@ -29,7 +29,7 @@ function handleButton(){
 	}
 
 }
-// Clear 
+// Clear
 clear.addEventListener('click',function(){
 	document.getElementById('leftInput').setAttribute('value', '');
 	document.getElementById('rightInput').setAttribute('value', '');
@@ -56,11 +56,11 @@ switch (document.getElementById('operatorInput').getAttribute('value')) {
 		break;
 	case '/' :
 		answer = leftInput / rightInput;
-		break;	
+		break;
 }
 document.getElementById('leftInput').setAttribute('value', answer);
 document.getElementById('rightInput').setAttribute('value', '');
 document.getElementById('operatorInput').setAttribute('value', '');
 })
 //the answer needs to take the values of the leftInput and rightInput, and use the operatorInput to perform an action to get the answer
-})();			
+})();

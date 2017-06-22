@@ -1,12 +1,13 @@
 <?php 
 require_once ('../national_parks_config.php');
 require_once ('../db_connect.php');
-require_once ('../input.php');
+require_once ('../Input.php');
 require_once ('../Park.php');
 
 // FUNCTION CREATED USING PREPARED STATEMENTS USING POST TO ADD NEW PARK TO DATABASE.
 function submitNewPark($dbc) 
 {
+	$errors = [];
 	try {
 		$name = Input::getString('name');	
 		} catch (Exception $e) {
@@ -33,10 +34,11 @@ function submitNewPark($dbc)
 			$errors['description'] = $e->getMessage();
 		}
 
-	if(count(Input::$errors) == 0) {
+	if(count(Input::$errors) === 0) {
 	$query = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
 	
 	$stmt = $dbc->prepare($query);
+	
 // Update your national_parks.php page to use your updated Input class and the appropriate method for the //different form fields.
 	
 	$stmt->bindValue(':name', htmlspecialchars(strip_tags(Input::getString('name'))), PDO::PARAM_STR);
@@ -58,6 +60,7 @@ function pageController($dbc)
 	if(Input::get('name')) {
 	submitNewPark($dbc);
 	};
+	$errors = [];
 	$limit = 4;
 	$offset = (isset($_GET['page'])) ? (($_GET['page'] -1) * $limit) : 0;
 	$query = ('SELECT * FROM national_parks');
@@ -72,7 +75,8 @@ function pageController($dbc)
 	return [ 
 		'parks' => $parks,
 		'totalParks' => $stmt->rowCount(),
-		'limit' => $limit
+		'limit' => $limit,
+		'errors' => $errors
 	];
 };
 extract (pageController($dbc));
@@ -164,25 +168,25 @@ a:hover {
 			<div class="form-group">
 				<label for="park_name" class="col-sm-2 control-label">Park Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="name" placeholder="Park Name">
+					<input type="text" class="form-control" name="name" placeholder="Park Name" required="text">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="park_location" class="col-sm-2 control-label">Location</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="location" placeholder="Park Location">
+					<input type="text" class="form-control" name="location" placeholder="Park Location" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="date_established" class="col-sm-2 control-label">Date Established</label>
 				<div class="col-sm-10">
-					<input type="date" class="form-control" name="date_established" placeholder="Date Established YYYY-MM-DD">
+					<input type="date" class="form-control" name="date_established" placeholder="Date Established YYYY-MM-DD" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="area_in_acres" class="col-sm-2 control-label">Area In Acres</label>
 				<div class="col-sm-10">
-					<input type="number" class="form-control" name="area_in_acres" placeholder="Area In Acres">
+					<input type="number" class="form-control" name="area_in_acres" placeholder="Area In Acres" required="number">
 				</div>
 			</div>
 			<div class="form-group">
