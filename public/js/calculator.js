@@ -16,13 +16,13 @@ for (var i = 0; i < operators.length; i++) {
 
 // Get the handleButton function to display in the inputs on top of the calculator
 function handleButton(){
-	if (this.className.includes("operators")) {
+	if (this.className.includes('operators')) {
 		document.getElementById('operatorInput').setAttribute('value', this.innerHTML);
 	} else if (operatorInput.value != ''){
 		var displayValue = document.getElementById('rightInput').getAttribute('value');
 		displayValue += this.innerHTML;
 		document.getElementById('rightInput').setAttribute('value', displayValue);
-	} else if (this.className.includes("numbers")) {
+	} else if (this.className.includes('numbers')) {
 		var displayValue = document.getElementById('leftInput').getAttribute('value');
 		displayValue += this.innerHTML;
 		document.getElementById('leftInput').setAttribute('value', displayValue);
